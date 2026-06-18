@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Ms. Steiner — Qwiklearn</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── ABOUT HERO ── */
+    .about-hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #163a16 100%);
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .about-hero .section-label { color: rgba(255,255,255,0.6); }
+    .about-hero .section-title { color: var(--white); }
+
+    /* ── BIO SECTION ── */
+    .bio-section { padding: 80px 24px; }
+    .bio-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .bio-photo-wrap {
+      position: sticky;
+      top: 90px;
+    }
+    .bio-photo {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      object-fit: cover;
+      aspect-ratio: 3/4;
+      background: #e5eae4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .bio-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .bio-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, #e5eae4 0%, #d0d9ce 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: var(--shadow-lg);
+    }
+    .photo-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-light);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .bio-stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .bio-stat {
+      background: var(--off-white);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .bio-stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--green);
+    }
+    .bio-stat span { font-size: 0.78rem; color: var(--text-light); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* ── BIO CONTENT ── */
+    .bio-content {}
+    .bio-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 900;
+      color: var(--text-dark);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .bio-title {
+      font-size: 1rem;
+      color: var(--orange);
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+    .bio-body p {
+      color: var(--text-mid);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .bio-section-head {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin: 36px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .bio-section-head::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .edu-list, .exp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .edu-list li, .exp-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.97rem;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+    .edu-list .bullet, .exp-list .bullet {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .exp-list .years {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--teal-dark);
+      padding: 2px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .exp-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .exp-place { color: var(--text-mid); font-size: 0.85rem; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--off-white);
+      border-top: 3px solid var(--orange);
+      padding: 56px 24px;
+      text-align: center;
+    }
+    .cta-strip h2 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    .cta-strip p { color: var(--text-mid); margin-bottom: 24px; }
+
+    @media (max-width: 900px) {
+      .bio-grid { grid-template-columns: 1fr; gap: 32px; }
+      .bio-photo-wrap { position: static; }
+      .bio-photo-placeholder { aspect-ratio: 1; max-width: 280px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Qwik<span>learn</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="studyhall.html">Study Hall</a></li>
+      <li><a href="mathcamp.html">Math Camp</a></li>
+      <li><a href="mailto:qwiklearntutoring@gmail.com" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ABOUT HERO -->
+<div class="about-hero">
+  <div class="section-label">Meet Your Tutor</div>
+  <h1 class="section-title" style="color:white;margin:0 auto;max-width:600px;">The person behind the method</h1>
+</div>
+
+<!-- BIO -->
+<section class="bio-section">
+  <div class="bio-grid">
+
+    <!-- LEFT: Photo + stats -->
+    <div class="bio-photo-wrap">
+      <div class="bio-photo-placeholder">
+        <!-- Replace the div below with: <img src="images/ms-steiner.jpg" alt="Ms. Steiner"> -->
+        <div style="font-size:3rem;">👩‍🏫</div>
+        <div class="photo-label">Replace with<br>Ms. Steiner's photo<br><code style="font-size:0.7rem">images/ms-steiner.jpg</code></div>
+      </div>
+      <div class="bio-stat-row">
+        <div class="bio-stat"><strong>8+</strong><span>Years Tutoring</span></div>
+        <div class="bio-stat"><strong>PreK</strong><span>to College</span></div>
+        <div class="bio-stat"><strong>M.Sc.</strong><span>Physics (In Progress)</span></div>
+        <div class="bio-stat"><strong>100%</strong><span>Virtual</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Bio text -->
+    <div class="bio-content">
+      <div class="bio-name">Ms. Steiner</div>
+      <div class="bio-title">Math &amp; Physics Tutor · Qwiklearn Founder</div>
+
+      <div class="bio-body">
+        <p>
+          Hi there! I started tutoring while studying for my degree at CUNY — and in doing so, I discovered a love and passion for teaching that I never expected. I take great pride in guiding my students on the path to success, and I've found that my excitement and love for the topics I teach can be infectious.
+        </p>
+        <p>
+          It's a great joy to share and spread my love of learning. I've taught students from preschool age up to and including college level. When I teach, I choose to create a well-rounded experience that targets test-taking skills, gaps in knowledge, and working independently.
+        </p>
+        <p>
+          In my free time, I love to hike, travel, watch physics documentaries, and ponder my place in the universe.
+        </p>
+      </div>
+
+      <div class="bio-section-head">Education</div>
+      <ul class="edu-list">
+        <li><span class="bullet"></span><span><strong>B.Sc. — Physics</strong>, CUNY</span></li>
+        <li><span class="bullet"></span><span><strong>M.Sc. — Physics</strong> (In Progress)</span></li>
+      </ul>
+
+      <div class="bio-section-head">Teaching Experience</div>
+      <ul class="exp-list">
+        <li>
+          <span class="bullet"></span>
+          <div class="exp-item">
+            <span><strong>Math &amp; Physics Tutoring</strong></span>
+            <span class="exp-place">Private clients, all levels</span>
+          </div>
+          <span class="years">8 yrs</span>
+        </li>
+        <li>
+          <span class="bullet"></span>
+          <div class="exp-item">
+            <span><strong>Physics &amp; Pre-Calculus Teaching</strong></span>
+            <span class="exp-place">Private school</span>
+          </div>
+          <span class="years">2 yrs</span>
+        </li>
+        <li>
+          <span class="bullet"></span>
+          <div class="exp-item">
+            <span><strong>GED Math</strong></span>
+            <span class="exp-place">GED program for refugees</span>
+          </div>
+          <span class="years">3 yrs</span>
+        </li>
+        <li>
+          <span class="bullet"></span>
+          <div class="exp-item">
+            <span><strong>Online Math Coaching</strong></span>
+            <span class="exp-place">Art of Problem Solving (AoPS)</span>
+          </div>
+          <span class="years">4 yrs</span>
+        </li>
+        <li>
+          <span class="bullet"></span>
+          <div class="exp-item">
+            <span><strong>Math Tutoring Centers</strong></span>
+            <span class="exp-place">Mathnasium &amp; Sanidas</span>
+          </div>
+          <span class="years">2 yrs</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <h2>Ready to work with Ms. Steiner?</h2>
+  <p>Reach out by email to schedule your first session — no commitment required.</p>
+  <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">qwiklearntutoring@gmail.com</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Qwik<span>learn</span></div>
+      <p class="footer-tagline">Expert Math Tutoring · Virtual · All Grades</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Ms. Steiner</a></li>
+        <li><a href="services.html">Services &amp; Pricing</a></li>
+        <li><a href="studyhall.html">Virtual Study Hall</a></li>
+        <li><a href="mathcamp.html">Math Camp 2026</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:qwiklearntutoring@gmail.com">qwiklearntutoring@gmail.com</a></li>
+        <li><a href="#">Sun–Thu: 8 am – 11 pm EST</a></li>
+        <li><a href="#">Friday: 8 am – 5 pm EST</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Qwiklearn. All rights reserved.</span>
+    <span>Built with ❤️ for students everywhere.</span>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  ham.addEventListener('click', () => nav.classList.toggle('open'));
+</script>
+</body>
+</html>

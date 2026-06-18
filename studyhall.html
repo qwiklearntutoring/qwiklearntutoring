@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Study Hall — Qwiklearn</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── STUDY HALL HERO ── */
+    .sh-hero {
+      background: linear-gradient(160deg, var(--navy) 0%, #0a2a0a 50%, var(--navy-mid) 100%);
+      padding: 80px 24px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .sh-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 70% at 20% 50%, rgba(31,184,195,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 70% at 80% 50%, rgba(232,108,26,0.06) 0%, transparent 60%);
+    }
+    .sh-hero-inner { max-width: 700px; margin: 0 auto; position: relative; }
+    .sh-hero .section-label { color: var(--teal); }
+    .sh-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .sh-hero-title em { color: var(--orange); font-style: normal; }
+    .sh-hero-sub {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .sh-hero-email {
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 32px;
+      display: block;
+    }
+    .sh-hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── WHAT IS STUDY HALL ── */
+    .what-section { background: var(--off-white); }
+    .what-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .what-content {}
+    .what-content p { color: var(--text-mid); font-size: 1.05rem; line-height: 1.8; margin-bottom: 16px; }
+    .what-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .what-hl {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .what-hl .hl-icon { font-size: 1.2rem; }
+
+    .what-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .open-door-card {
+      background: var(--navy);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      color: var(--white);
+    }
+    .open-door-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+    .open-door-card p { color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6; }
+
+    /* ── SESSIONS GRID ── */
+    .sessions-section {}
+    .sessions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .session-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .session-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    .session-header {
+      padding: 32px 32px 24px;
+      position: relative;
+    }
+    .session-header.middle { background: linear-gradient(135deg, #0a3a4a 0%, #1a6070 100%); }
+    .session-header.high   { background: linear-gradient(135deg, #3a1a06 0%, #7a3010 100%); }
+
+    .session-level {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+    }
+    .session-name {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .session-name em { color: var(--orange); font-style: normal; }
+    .session-subjects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .subject-chip {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .session-img-placeholder {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, #e5eae4, #d0d9ce);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .session-img-placeholder span { font-size: 0.8rem; color: var(--text-light); font-weight: 700; text-align: center; line-height: 1.4; }
+
+    .session-body { padding: 24px 32px; }
+
+    .session-info-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.93rem;
+    }
+    .session-info-row:last-of-type { border-bottom: none; }
+    .info-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      width: 90px;
+      flex-shrink: 0;
+    }
+    .info-value { font-weight: 600; color: var(--text-dark); }
+    .info-value .teal { color: var(--teal-dark); }
+    .info-free-badge {
+      display: inline-block;
+      background: rgba(31,184,195,0.1);
+      color: var(--teal-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: 8px;
+    }
+    .session-cta { margin-top: 20px; }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { background: var(--navy); }
+    .how-section .section-title { color: var(--white); }
+    .how-section .section-sub   { color: rgba(255,255,255,0.6); }
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .how-step {
+      text-align: center;
+      padding: 32px 24px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .step-title { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .step-desc  { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    @media (max-width: 900px) {
+      .what-grid { grid-template-columns: 1fr; gap: 32px; }
+      .sessions-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Qwik<span>learn</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="studyhall.html" class="active">Study Hall</a></li>
+      <li><a href="mathcamp.html">Math Camp</a></li>
+      <li><a href="mailto:qwiklearntutoring@gmail.com" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="sh-hero">
+  <div class="sh-hero-inner">
+    <div class="section-label">Weekly Free Sessions</div>
+    <h1 class="sh-hero-title">QWIKLEARN<br>VIRTUAL<br><em>STUDY HALL</em></h1>
+    <p class="sh-hero-sub">Open-door Q&amp;A sessions every Sunday — no appointment needed.</p>
+    <a href="mailto:qwiklearntutoring@gmail.com" class="sh-hero-email">qwiklearntutoring@gmail.com to sign up</a>
+    <div class="sh-hero-actions">
+      <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">Sign Up Now</a>
+      <a href="#sessions" class="btn btn-outline">See Session Times</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IS STUDY HALL -->
+<section class="section what-section">
+  <div class="section-inner">
+    <div class="what-grid">
+      <div class="what-content">
+        <div class="section-label">What is Study Hall?</div>
+        <h2 class="section-title">Drop in, ask anything</h2>
+        <p>The Qwiklearn Virtual Study Hall is a weekly open-door Q&amp;A session for students who need a quick answer, help getting unstuck, or just a structured environment to work through their math homework.</p>
+        <p>Available every Sunday throughout July and August — pop in during your grade's time slot as often as you like. No booking, no commitment.</p>
+        <div class="what-highlights">
+          <div class="what-hl"><span class="hl-icon">📅</span> Every Sunday in July &amp; August</div>
+          <div class="what-hl"><span class="hl-icon">🆓</span> Free open-door format — come as often as you like</div>
+          <div class="what-hl"><span class="hl-icon">💬</span> Live Q&amp;A — ask any math question</div>
+          <div class="what-hl"><span class="hl-icon">💻</span> 100% virtual</div>
+        </div>
+      </div>
+      <div class="what-visual">
+        <div class="open-door-card">
+          <h3>Open-Door Policy</h3>
+          <p>Sessions are open to anyone — you don't need to be a current Qwiklearn student. Simply email to get the link and join whenever you need help during the session window.</p>
+        </div>
+        <div class="open-door-card" style="background:linear-gradient(135deg,#1a4a1a,var(--green));">
+          <h3>Weekly HW &amp; Summer HW Q&amp;A</h3>
+          <p>Whether it's regular homework, summer work, or getting ahead for next year — bring your questions and we'll work through them together.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSION TIMES -->
+<section class="section" id="sessions">
+  <div class="section-inner">
+    <div class="section-label">Session Schedule</div>
+    <h2 class="section-title">Pick your time slot</h2>
+    <p class="section-sub">Two separate sessions run back-to-back on Sundays — one for middle school, one for high school.</p>
+    <div class="sessions-grid">
+
+      <!-- Middle School -->
+      <div class="session-card">
+        <div class="session-header middle">
+          <div class="session-level">Middle School · Grades 6–8</div>
+          <div class="session-name">MIDDLE<br>SCHOOL<br><em>STUDY HALL</em></div>
+          <div class="session-subjects">
+            <span class="subject-chip">Grade 6</span>
+            <span class="subject-chip">Grade 7</span>
+            <span class="subject-chip">Grade 8</span>
+          </div>
+        </div>
+        <!-- Replace with your actual Study Hall image -->
+        <div class="session-img-placeholder">
+          <span>📸 Replace with your<br>Middle School Study Hall image<br><code style="font-size:0.7rem">images/studyhall-middle.jpg</code></span>
+        </div>
+        <div class="session-body">
+          <div class="session-info-row">
+            <span class="info-label">When</span>
+            <span class="info-value">Every Sunday, July &amp; August</span>
+          </div>
+          <div class="session-info-row">
+            <span class="info-label">Time</span>
+            <span class="info-value teal">12:00 pm – 2:00 pm EST</span>
+          </div>
+          <div class="session-info-row">
+            <span class="info-label">Format</span>
+            <span class="info-value">Open-door Q&amp;A <span class="info-free-badge">Free</span></span>
+          </div>
+          <div class="session-info-row">
+            <span class="info-label">Covers</span>
+            <span class="info-value">HW help · Summer HW · General math Q&amp;A</span>
+          </div>
+          <div class="session-cta">
+            <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-teal" style="width:100%;text-align:center;display:block;">Email to Get the Link</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- High School -->
+      <div class="session-card">
+        <div class="session-header high">
+          <div class="session-level">High School · Algebra → Pre-Calc</div>
+          <div class="session-name">HIGH<br>SCHOOL<br><em>STUDY HALL</em></div>
+          <div class="session-subjects">
+            <span class="subject-chip">Algebra 1</span>
+            <span class="subject-chip">Algebra 2</span>
+            <span class="subject-chip">Trigonometry</span>
+            <span class="subject-chip">Pre-Calculus</span>
+          </div>
+        </div>
+        <!-- Replace with your actual Study Hall image -->
+        <div class="session-img-placeholder">
+          <span>📸 Replace with your<br>High School Study Hall image<br><code style="font-size:0.7rem">images/studyhall-high.jpg</code></span>
+        </div>
+        <div class="session-body">
+          <div class="session-info-row">
+            <span class="info-label">When</span>
+            <span class="info-value">Every Sunday, July &amp; August</span>
+          </div>
+          <div class="session-info-row">
+            <span class="info-label">Time</span>
+            <span class="info-value" style="color:var(--orange);">2:00 pm – 4:00 pm EST</span>
+          </div>
+          <div class="session-info-row">
+            <span class="info-label">Format</span>
+            <span class="info-value">Open-door Q&amp;A <span class="info-free-badge">Free</span></span>
+          </div>
+          <div class="session-info-row">
+            <span class="info-label">Covers</span>
+            <span class="info-value">HW help · Summer HW · General math Q&amp;A</span>
+          </div>
+          <div class="session-cta">
+            <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary" style="width:100%;text-align:center;display:block;">Email to Get the Link</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-section">
+  <div class="section-inner">
+    <div class="section-label" style="color:var(--teal);">It's simple</div>
+    <h2 class="section-title">How Study Hall works</h2>
+    <p class="section-sub">Three steps and you're in — no account, no payment, no hassle.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Email to sign up</div>
+        <p class="step-desc">Send a quick email to qwiklearntutoring@gmail.com and you'll receive the virtual session link.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Join any Sunday</div>
+        <p class="step-desc">Drop into your grade's time slot any Sunday in July or August. Come once or every week — it's up to you.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Ask your questions</div>
+        <p class="step-desc">Bring your homework, your textbook, your confusion — and leave with clarity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Qwik<span>learn</span></div>
+      <p class="footer-tagline">Expert Math Tutoring · Virtual · All Grades</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Ms. Steiner</a></li>
+        <li><a href="services.html">Services &amp; Pricing</a></li>
+        <li><a href="studyhall.html">Virtual Study Hall</a></li>
+        <li><a href="mathcamp.html">Math Camp 2026</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:qwiklearntutoring@gmail.com">qwiklearntutoring@gmail.com</a></li>
+        <li><a href="#">Sun–Thu: 8 am – 11 pm EST</a></li>
+        <li><a href="#">Friday: 8 am – 5 pm EST</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Qwiklearn. All rights reserved.</span>
+    <span>Built with ❤️ for students everywhere.</span>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  ham.addEventListener('click', () => nav.classList.toggle('open'));
+</script>
+</body>
+</html>
