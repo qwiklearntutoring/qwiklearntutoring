@@ -394,6 +394,10 @@
       background: linear-gradient(135deg, #1a4a2a 0%, #0d2e1a 100%);
     }
 
+    .badge-dark {
+      background: linear-gradient(135deg, #0d2e1a 0%, #0a1f0a 100%);
+    }
+
     .service-tile h3 {
       font-family: Georgia, 'Times New Roman', serif;
       font-size: 1.4rem;
@@ -406,27 +410,6 @@
       color: #6a7a6a;
       font-size: 0.9rem;
       font-weight: 500;
-    }
-
-    /* ── HIGH SCHOOL TOPICS (NO GREEN TILES) ── */
-    .hs-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .hs-topic {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: #1a2e1a;
-      padding: 16px 0;
-      border-bottom: 2px solid #e0e8e0;
-    }
-
-    .hs-topic:last-child {
-      border-bottom: none;
     }
 
     /* ── PACKAGES SECTION HEADER WITH BUTTON ── */
@@ -700,18 +683,6 @@
         margin: 40px auto 0;
       }
 
-      .hs-grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 20px auto 0;
-      }
-
-      .hs-topic {
-        font-size: 1.4rem;
-        padding: 12px 0;
-        border-bottom: 1px solid #e0e8e0;
-      }
-
       .packages-header-row {
         flex-direction: column;
         align-items: flex-start;
@@ -763,11 +734,6 @@
 
       .service-tile h3 {
         font-size: 1.2rem;
-      }
-
-      .hs-topic {
-        font-size: 1.2rem;
-        padding: 10px 0;
       }
 
       .pkg-header {
@@ -826,9 +792,9 @@
     <div class="section-label">What We Offer</div>
     <h2 class="section-title">Tutoring for Every Level</h2>
     <p class="section-sub">1-on-1 virtual tutoring tailored to each student's needs.</p>
-
-    <!-- Elementary + Middle School (Green Tiles) -->
     <div class="services-grid">
+
+      <!-- Row 1: Elementary + Middle School -->
       <div class="service-tile">
         <span class="level-badge badge-green">Elementary</span>
         <h3>Math Grades 1-5</h3>
@@ -840,17 +806,30 @@
         <h3>Math Grades 6-8</h3>
         <div class="grade-range">Bridging to high school</div>
       </div>
-    </div>
 
-    <!-- High School Topics (No Green Tiles - Just Dark Text) -->
-    <h3 style="font-family:Georgia,'Times New Roman',serif;font-size:1.3rem;font-weight:700;color:#1a2e1a;margin-top:40px;margin-bottom:12px;">High School</h3>
-    <div class="hs-grid">
-      <div class="hs-topic">Algebra 1</div>
-      <div class="hs-topic">Algebra 2</div>
-      <div class="hs-topic">Trigonometry</div>
-      <div class="hs-topic">Pre-Calculus</div>
-    </div>
+      <!-- Row 2: Algebra 1 + Algebra 2 -->
+      <div class="service-tile">
+        <span class="level-badge badge-dark">Algebra 1</span>
+        <h3>Foundations of algebra</h3>
+      </div>
 
+      <div class="service-tile">
+        <span class="level-badge badge-dark">Algebra 2</span>
+        <h3>Advanced algebraic concepts</h3>
+      </div>
+
+      <!-- Row 3: Trigonometry + Pre-Calculus -->
+      <div class="service-tile">
+        <span class="level-badge badge-dark">Trigonometry</span>
+        <h3>Angles, functions, and identities</h3>
+      </div>
+
+      <div class="service-tile">
+        <span class="level-badge badge-dark">Pre-Calculus</span>
+        <h3>Preparation for calculus</h3>
+      </div>
+
+    </div>
   </div>
 </section>
 
