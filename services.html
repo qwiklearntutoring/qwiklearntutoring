@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>High School Study Hall — Qwiklearn</title>
+  <title>Services — Qwiklearn</title>
   <style>
     /* ── RESET & BASE ── */
     * {
@@ -251,30 +251,30 @@
       background: rgba(245,166,35,0.1);
     }
 
-    /* ── HERO ── */
-    .sh-hero {
+    /* ── PAGE HERO ── */
+    .page-hero {
       background: linear-gradient(135deg, #0a1f0a 0%, #0d2e1a 55%, #1a4a2a 100%);
-      padding: 60px 24px 40px;
+      padding: 60px 24px 56px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
 
-    .sh-hero::before {
+    .page-hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(192,80,16,0.06) 0%, transparent 70%);
     }
 
-    .sh-hero-inner {
+    .page-hero-inner {
       max-width: 800px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
     }
 
-    .sh-hero .section-label {
+    .page-hero .section-label {
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -283,230 +283,324 @@
       margin-bottom: 8px;
     }
 
-    .sh-hero-title {
+    .page-hero .section-title {
       font-family: Georgia, 'Times New Roman', serif;
       font-size: clamp(2.8rem, 6vw, 4.5rem);
       font-weight: 900;
       color: #ffffff;
-      line-height: 0.95;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
-    .sh-hero-title .orange {
-      color: #f5a623;
+    .page-hero .section-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    .sh-hero-sub {
-      color: rgba(255,255,255,0.75);
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+    /* ── SECTION COMMON ── */
+    .section {
+      padding: 80px 24px;
     }
 
-    .sh-hero-actions {
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2a6b2a;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: #5a6a5a;
+      max-width: 600px;
+    }
+
+    .services-section {
+      background: #f5f7f5;
+    }
+
+    /* ── SERVICES TILES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .service-tile {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 28px 24px;
+      border: 1px solid #e0e8e0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
       display: flex;
-      gap: 14px;
+      flex-direction: column;
+      min-height: 120px;
       justify-content: center;
+    }
+
+    .service-tile:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+
+    .service-tile .level-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      margin-bottom: 8px;
+      width: fit-content;
+    }
+
+    .badge-green {
+      background: linear-gradient(135deg, #2a6a3a 0%, #1a4a2a 100%);
+    }
+
+    .badge-mid {
+      background: linear-gradient(135deg, #1a4a2a 0%, #0d2e1a 100%);
+    }
+
+    .service-tile h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 2px;
+    }
+
+    .service-tile .grade-range {
+      color: #6a7a6a;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ── HIGH SCHOOL TILES (no badge, with subtitle) ── */
+    .service-tile.no-badge {
+      padding: 28px 24px;
+    }
+
+    .service-tile.no-badge h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 4px;
+    }
+
+    .service-tile.no-badge .subtitle {
+      color: #6a7a6a;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ── PACKAGES SECTION HEADER WITH BUTTON ── */
+    .packages-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 48px;
       flex-wrap: wrap;
     }
 
-    /* ── HERO LAYOUT WITH IMAGE ── */
-    .sh-hero-layout {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 24px 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: stretch;
-    }
-
-    .sh-hero-image {
-      display: flex;
-    }
-
-    .sh-hero-image img {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
-      display: block;
-      object-fit: cover;
-      height: 100%;
-    }
-
-    .sh-hero-info {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      justify-content: space-between;
-    }
-
-    .sh-hero-info .info-top h2 {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: #1a2e1a;
-      margin-bottom: 14px;
-    }
-
-    .sh-hero-info .info-top p {
-      color: #5a6a5a;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .sh-hero-info .detail-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 12px 0;
-      border-bottom: 1px solid #f0f4f0;
-      font-size: 1.05rem;
-    }
-
-    .sh-hero-info .detail-row:last-child {
-      border-bottom: none;
-    }
-
-    .sh-hero-info .detail-label {
-      color: #6a7a6a;
-      font-weight: 600;
-    }
-
-    .sh-hero-info .detail-value {
-      color: #1a2e1a;
-      font-weight: 600;
-    }
-
-    .sh-hero-info .detail-value .orange {
-      color: #c05010;
-    }
-
-    /* ── SIGN UP TILE ── */
-    .signup-tile {
-      background: linear-gradient(135deg, #0d2e1a 0%, #1a4a2a 100%);
-      border-radius: 16px;
-      padding: 36px 32px;
-      text-align: center;
-      border: 3px solid #f5a623;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    .packages-header-row .text-content {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 12px;
     }
 
-    .signup-tile h3 {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: #ffffff;
-      margin-bottom: 4px;
-    }
-
-    .signup-tile p {
-      color: rgba(255,255,255,0.8);
-      font-size: 1.05rem;
-      line-height: 1.6;
-      margin-bottom: 6px;
-    }
-
-    .signup-tile .subjects {
+    .packages-header-row .btn-wrapper {
       display: flex;
-      flex-wrap: wrap;
+      align-items: stretch;
+      flex-shrink: 0;
+      min-width: 340px;
+      width: 40%;
+    }
+
+    .packages-header-row .btn-green {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      gap: 8px;
-      margin: 8px 0 12px;
-    }
-
-    .signup-tile .subjects span {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.9);
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 4px 14px;
-      border-radius: 20px;
-    }
-
-    .signup-tile .btn {
+      padding: 24px 32px;
+      font-size: 1.6rem;
       width: 100%;
+      min-height: 100%;
       text-align: center;
+      border-radius: 16px;
+      background: #0d2e1a;
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      border: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .packages-header-row .btn-green:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      background: #1a4a2a;
+    }
+
+    .packages-header-row .btn-green .sub-text {
       display: block;
-      padding: 16px 32px;
-      font-size: 1.05rem;
+      font-size: 0.8rem;
+      font-weight: 400;
+      opacity: 0.7;
       margin-top: 4px;
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .sh-hero-layout {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .sh-hero-image img {
-        height: auto;
-        max-height: 500px;
-      }
-
-      .signup-tile .btn {
-        width: auto;
-        display: inline-block;
-      }
-
-      .signup-tile {
-        padding: 28px 24px;
-      }
+    /* ── PACKAGES SECTION ── */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
     }
 
-    @media (max-width: 480px) {
-      .sh-hero {
-        padding: 40px 16px 24px;
-      }
+    .pkg-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #e0e8e0;
+      background: #ffffff;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
 
-      .sh-hero-layout {
-        padding: 24px 16px 0;
-      }
+    .pkg-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
 
-      .sh-hero-info .info-top h2 {
-        font-size: 1.8rem;
-      }
+    .pkg-card.featured-5 {
+      border-color: #f5a623;
+    }
 
-      .sh-hero-info .info-top p {
-        font-size: 0.95rem;
-      }
+    .pkg-card.featured-10 {
+      border-color: #e0e8e0;
+    }
 
-      .sh-hero-info .detail-row {
-        font-size: 0.9rem;
-        padding: 8px 0;
-      }
+    .pkg-header {
+      padding: 28px 28px 22px;
+      background: #f5f7f5;
+      border-bottom: 1px solid #e0e8e0;
+      position: relative;
+    }
 
-      .signup-tile {
-        padding: 20px 16px;
-      }
+    .pkg-card.featured-5 .pkg-header {
+      background: linear-gradient(135deg, #c05010 0%, #f5a623 100%);
+    }
 
-      .signup-tile h3 {
-        font-size: 1.3rem;
-      }
+    .pkg-card.featured-10 .pkg-header {
+      background: #f5f7f5;
+    }
 
-      .signup-tile p {
-        font-size: 0.9rem;
-      }
+    .pkg-featured-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
 
-      .signup-tile .subjects span {
-        font-size: 0.75rem;
-        padding: 3px 10px;
-      }
+    .pkg-card.featured-5 .pkg-featured-badge {
+      background: #ffffff;
+      color: #c05010;
+    }
 
-      .signup-tile .btn {
-        font-size: 0.9rem;
-        padding: 12px 20px;
-      }
+    .pkg-card.featured-10 .pkg-featured-badge {
+      background: #2a6b2a;
+      color: #ffffff;
+    }
+
+    .pkg-name {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+      color: #1a2e1a;
+    }
+
+    .pkg-card.featured-5 .pkg-name {
+      color: #ffffff;
+    }
+
+    .pkg-card.featured-10 .pkg-name {
+      color: #1a2e1a;
+    }
+
+    .pkg-sessions {
+      color: #6a7a6a;
+      font-size: 0.9rem;
+    }
+
+    .pkg-card.featured-5 .pkg-sessions {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .pkg-card.featured-10 .pkg-sessions {
+      color: #6a7a6a;
+    }
+
+    .pkg-body {
+      padding: 24px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pkg-features {
+      list-style: none;
+      margin: 0;
+      flex: 1;
+    }
+
+    .pkg-features li {
+      font-size: 0.9rem;
+      color: #5a6a5a;
+      padding: 6px 0;
+      border-bottom: 1px solid #f0f4f0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pkg-features li:last-child {
+      border-bottom: none;
+    }
+
+    .pkg-features .check {
+      color: #2a6b2a;
+      font-weight: 700;
     }
 
     /* ── FOOTER ── */
@@ -586,6 +680,35 @@
     }
 
     @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 40px auto 0;
+      }
+
+      .packages-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .packages-header-row .btn-wrapper {
+        width: 100%;
+        min-width: unset;
+      }
+
+      .packages-header-row .btn-green {
+        font-size: 1.2rem;
+        padding: 18px 32px;
+        min-height: auto;
+      }
+
+      .packages-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 40px auto 0;
+      }
+
       .footer-inner {
         grid-template-columns: 1fr;
         gap: 32px;
@@ -597,23 +720,63 @@
         text-align: center;
       }
     }
+
+    @media (max-width: 480px) {
+      .page-hero {
+        padding: 40px 16px 32px;
+      }
+
+      .section {
+        padding: 48px 16px;
+      }
+
+      .service-tile {
+        padding: 20px 16px;
+        min-height: 80px;
+      }
+
+      .service-tile h3 {
+        font-size: 1.2rem;
+      }
+
+      .service-tile.no-badge h3 {
+        font-size: 1.3rem;
+      }
+
+      .service-tile.no-badge .subtitle {
+        font-size: 0.8rem;
+      }
+
+      .pkg-header {
+        padding: 20px;
+      }
+
+      .pkg-body {
+        padding: 20px;
+      }
+
+      .packages-header-row .btn-green {
+        font-size: 1rem;
+        padding: 14px 24px;
+      }
+    }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- NAVBAR WITH DROPDOWN -->
 <nav class="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">Qwik<span>learn</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
       <li class="dropdown">
-        <a href="#" class="dropbtn active">Study Hall</a>
+        <a href="#" class="dropbtn">Study Hall</a>
         <ul class="dropdown-content">
           <li><a href="studyhallms.html">Middle School</a></li>
-          <li><a href="studyhallhs.html" class="active">High School</a></li>
+          <li><a href="studyhallhs.html">High School</a></li>
         </ul>
       </li>
       <li><a href="mathcamp.html">Math Camp</a></li>
@@ -625,55 +788,132 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="sh-hero">
-  <div class="sh-hero-inner">
-    <div class="section-label">Summer 2026</div>
-    <h1 class="sh-hero-title">QWIKLEARN<br>VIRTUAL<br><span class="orange">STUDY HALL</span></h1>
-    <p class="sh-hero-sub">Weekly high school math homework and summer work Q&A — open door, no appointment needed.</p>
-    <div class="sh-hero-actions">
-      <a href="bookappointment.html" class="btn btn-primary">Contact to Sign Up</a>
-    </div>
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">1-on-1 Virtual Tutoring</div>
+    <h1 class="section-title">Services</h1>
+    <p class="section-sub">All sessions are virtual and conducted 1-on-1. Choose the number of sessions that fits your needs.</p>
   </div>
 </div>
 
-<!-- HERO IMAGE + INFO SIDE BY SIDE -->
-<div class="sh-hero-layout">
-  <div class="sh-hero-image">
-    <img src="images/studyhallhs.png" alt="High School Study Hall">
-  </div>
-  <div class="sh-hero-info">
-    <div class="info-top">
-      <h2>Summer High School Study Hall</h2>
-      <p>Weekly open-door Q&A sessions for high school math — homework help, summer work, and general math questions.</p>
-      <div class="detail-row">
-        <span class="detail-label">Grades</span>
-        <span class="detail-value">Grades 9-12</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">When</span>
-        <span class="detail-value">Every Sunday, July &amp; August</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Time</span>
-        <span class="detail-value"><span class="orange">2:00 pm – 4:00 pm EST</span></span>
-      </div>
-    </div>
+<!-- SERVICES TILES -->
+<section class="section services-section">
+  <div class="section-inner">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Tutoring for Every Level</h2>
+    <p class="section-sub">1-on-1 virtual tutoring tailored to each student's needs.</p>
+    <div class="services-grid">
 
-    <!-- SIGN UP TILE - Filled with content -->
-    <div class="signup-tile">
-      <h3>Ready to Join?</h3>
-      <p>Contact us today to register for Summer High School Study Hall.</p>
-      <div class="subjects">
-        <span>Algebra 1</span>
-        <span>Algebra 2</span>
-        <span>Trigonometry</span>
-        <span>Pre-Calculus</span>
+      <!-- Row 1: Elementary + Middle School -->
+      <div class="service-tile">
+        <span class="level-badge badge-green">Elementary</span>
+        <h3>Math Grades 1-5</h3>
+        <div class="grade-range">Building strong foundations</div>
       </div>
-      <a href="bookappointment.html" class="btn btn-primary">Email to Sign Up</a>
+
+      <div class="service-tile">
+        <span class="level-badge badge-mid">Middle School</span>
+        <h3>Math Grades 6-8</h3>
+        <div class="grade-range">Bridging to high school</div>
+      </div>
+
+      <!-- Row 2: Algebra 1 + Algebra 2 (no badges, with subtitles) -->
+      <div class="service-tile no-badge">
+        <h3>Algebra 1</h3>
+        <div class="subtitle">Foundations of algebra</div>
+      </div>
+
+      <div class="service-tile no-badge">
+        <h3>Algebra 2</h3>
+        <div class="subtitle">Advanced algebraic concepts</div>
+      </div>
+
+      <!-- Row 3: Trigonometry + Pre-Calculus (no badges, with subtitles) -->
+      <div class="service-tile no-badge">
+        <h3>Trigonometry</h3>
+        <div class="subtitle">Angles, functions, and identities</div>
+      </div>
+
+      <div class="service-tile no-badge">
+        <h3>Pre-Calculus</h3>
+        <div class="subtitle">Preparation for calculus</div>
+      </div>
+
     </div>
   </div>
-</div>
+</section>
+
+<!-- PACKAGES SECTION -->
+<section class="section packages-section">
+  <div class="section-inner">
+    <div class="packages-header-row">
+      <div class="text-content">
+        <div class="section-label">Save with bundles</div>
+        <h2 class="section-title">Session Packages</h2>
+        <p class="section-sub">Book multiple sessions at once and save. Perfect for students who want consistent weekly progress.</p>
+      </div>
+      <div class="btn-wrapper">
+        <a href="bookappointment.html" class="btn-green">
+          Book Appointment
+          <span class="sub-text">Get signed up today!</span>
+        </a>
+      </div>
+    </div>
+    <div class="packages-grid">
+
+      <!-- Single Session -->
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div class="pkg-name">Single Session</div>
+          <div class="pkg-sessions">Pay as you go</div>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-features">
+            <li><span class="check">✓</span> 1-on-1 virtual session</li>
+            <li><span class="check">✓</span> Flexible scheduling</li>
+            <li><span class="check">✓</span> No commitment</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5-Session Pack -->
+      <div class="pkg-card featured-5">
+        <div class="pkg-header">
+          <span class="pkg-featured-badge">Save 5%</span>
+          <div class="pkg-name">5-Session Pack</div>
+          <div class="pkg-sessions">5 hours of tutoring</div>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-features">
+            <li><span class="check">✓</span> 5 x 1-on-1 virtual sessions</li>
+            <li><span class="check">✓</span> Flexible scheduling</li>
+            <li><span class="check">✓</span> Consistent weekly progress</li>
+            <li><span class="check">✓</span> 5% discount</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 10-Session Pack -->
+      <div class="pkg-card featured-10">
+        <div class="pkg-header">
+          <span class="pkg-featured-badge">Save 10%</span>
+          <div class="pkg-name">10-Session Pack</div>
+          <div class="pkg-sessions">10 hours of tutoring</div>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-features">
+            <li><span class="check">✓</span> 10 x 1-on-1 virtual sessions</li>
+            <li><span class="check">✓</span> Flexible scheduling</li>
+            <li><span class="check">✓</span> Consistent weekly progress</li>
+            <li><span class="check">✓</span> 10% discount</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
