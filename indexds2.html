@@ -236,7 +236,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(245,166,35,0.04) 0%, transparent 70%);
+      background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(245,166,35,0.06) 0%, transparent 70%);
     }
 
     .hero-content {
@@ -266,6 +266,10 @@
 
     .hero-title .accent {
       color: #f5a623;
+    }
+
+    .hero-title .accent2 {
+      color: #4fc3b7;
     }
 
     .hero-body {
@@ -386,7 +390,7 @@
       top: 28px;
       right: -28px;
       background: #0a1f0a;
-      border: 2px solid #f5a623;
+      border: 2px solid #4fc3b7;
       color: #ffffff;
       border-radius: 12px;
       padding: 14px 20px;
@@ -399,7 +403,7 @@
     .hero-badge2 strong {
       display: block;
       font-size: 1.1rem;
-      color: #f5a623;
+      color: #4fc3b7;
     }
 
     /* ── SECTION COMMON ── */
@@ -469,7 +473,18 @@
       justify-content: center;
       font-size: 1.5rem;
       margin-bottom: 18px;
+    }
+
+    .why-icon.orange {
       background: rgba(245,166,35,0.1);
+    }
+
+    .why-icon.teal {
+      background: rgba(79,195,183,0.1);
+    }
+
+    .why-icon.green {
+      background: rgba(45,106,45,0.1);
     }
 
     .why-card h3 {
@@ -586,13 +601,20 @@
 
     /* ── PROMO BANNER ── */
     .promo-banner {
-      background: #0d2e1a;
+      background: linear-gradient(135deg, #0d2e1a 0%, #1a4a2a 100%);
       padding: 64px 24px;
       text-align: center;
       position: relative;
       overflow: hidden;
       border-top: 3px solid #f5a623;
       border-bottom: 3px solid #f5a623;
+    }
+
+    .promo-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(245,166,35,0.05) 0%, transparent 70%);
     }
 
     .promo-banner h2 {
@@ -707,7 +729,7 @@
     <h1 class="hero-title">
       SIMPLE<br>
       <span class="accent">MEMORABLE</span><br>
-      MATH
+      <span class="accent2">MATH</span>
     </h1>
     <p class="hero-body">
       From fundamental elementary math to advanced high school calculus and physics — structured, rigorous instruction that turns frustration into real progress.
@@ -747,17 +769,17 @@
     <p class="section-sub">Three pillars that guide every session — whether it's homework help or test prep.</p>
     <div class="why-grid">
       <div class="why-card">
-        <div class="why-icon">🎯</div>
+        <div class="why-icon orange">🎯</div>
         <h3>Targeted Gap-Filling</h3>
         <p>We identify exactly where understanding breaks down and rebuild from that point — no wasted time on what's already mastered.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon">📝</div>
+        <div class="why-icon teal">📝</div>
         <h3>Test-Taking Strategy</h3>
         <p>Beyond content knowledge: pacing, process-of-elimination, and exam-day confidence for standardized tests and school exams alike.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon">🚀</div>
+        <div class="why-icon green">🚀</div>
         <h3>Independent Learners</h3>
         <p>The goal is for students to eventually not need us. We build habits and problem-solving frameworks that last a lifetime.</p>
       </div>
