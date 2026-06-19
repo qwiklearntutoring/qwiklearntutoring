@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Middle School Study Hall — Qwiklearn</title>
+  <style>
+    /* ── RESET & BASE ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #ffffff;
+      color: #1a2e1a;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: linear-gradient(135deg, #0d2e1a 0%, #1a4a2a 100%);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+      border-bottom: 3px solid #c05010;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span {
+      color: #f5a623;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: color 0.2s;
+      padding: 6px 0;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #f5a623;
+      border-bottom: 2px solid #f5a623;
+    }
+
+    .nav-links li a.nav-cta {
+      background: linear-gradient(135deg, #c05010 0%, #f5a623 100%);
+      color: #ffffff;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.2s;
+      border-bottom: none;
+    }
+
+    .nav-links li a.nav-cta:hover {
+      background: linear-gradient(135deg, #a0400a 0%, #e09515 100%);
+      color: #ffffff;
+      transform: scale(1.02);
+      border-bottom: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #ffffff;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 820px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: #0d2e1a;
+        padding: 24px 24px;
+        gap: 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        border-bottom: 3px solid #c05010;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li a {
+        font-size: 1rem;
+        padding: 8px 0;
+      }
+
+      .nav-links li a.nav-cta {
+        text-align: center;
+        padding: 12px 24px;
+      }
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.02);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #c05010 0%, #f5a623 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(192,80,16,0.3);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #a0400a 0%, #e09515 100%);
+      box-shadow: 0 6px 24px rgba(192,80,16,0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-outline:hover {
+      border-color: #f5a623;
+      background: rgba(245,166,35,0.1);
+    }
+
+    .btn-green {
+      background: #0d2e1a;
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      border: none;
+    }
+
+    .btn-green:hover {
+      background: #1a4a2a;
+      color: #ffffff;
+    }
+
+    /* ── HERO ── */
+    .sh-hero {
+      background: linear-gradient(135deg, #0a1f0a 0%, #0d2e1a 55%, #1a4a2a 100%);
+      padding: 60px 24px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sh-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(192,80,16,0.06) 0%, transparent 70%);
+    }
+
+    .sh-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sh-hero .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #f5a623;
+      margin-bottom: 8px;
+    }
+
+    .sh-hero-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .sh-hero-title .orange {
+      color: #f5a623;
+    }
+
+    .sh-hero-sub {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sh-hero-email {
+      color: #f5a623;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    .sh-hero-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── HERO IMAGE ── */
+    .sh-hero-image {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 0;
+    }
+
+    .sh-hero-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+      display: block;
+    }
+
+    /* ── SECTION COMMON ── */
+    .section {
+      padding: 80px 24px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2a6b2a;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: #5a6a5a;
+      max-width: 600px;
+    }
+
+    /* ── INFO CARDS ── */
+    .info-section {
+      background: #f5f7f5;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid #e0e8e0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .info-card .icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .info-card h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 8px;
+    }
+
+    .info-card p {
+      color: #5a6a5a;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ── DETAILS SECTION ── */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .detail-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid #e0e8e0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .detail-card h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 16px;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f4f0;
+      font-size: 0.95rem;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-label {
+      color: #6a7a6a;
+      font-weight: 600;
+    }
+
+    .detail-value {
+      color: #1a2e1a;
+      font-weight: 600;
+    }
+
+    .detail-value .orange {
+      color: #c05010;
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: #0d2e1a;
+      padding: 72px 24px;
+      text-align: center;
+      border-top: 3px solid #c05010;
+      border-bottom: 3px solid #c05010;
+    }
+
+    .cta-section .section-title {
+      color: #ffffff;
+    }
+
+    .cta-section .section-sub {
+      color: rgba(255,255,255,0.65);
+      margin: 0 auto 32px;
+    }
+
+    .cta-email {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #f5a623;
+      margin-bottom: 24px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #2a2a2a;
+      color: rgba(255,255,255,0.8);
+      padding: 48px 24px 20px;
+      border-top: 3px solid #c05010;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .footer-brand span {
+      color: #f5a623;
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 6px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: #f5a623;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    @media (max-width: 900px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sh-hero {
+        padding: 40px 16px 24px;
+      }
+
+      .sh-hero-image {
+        padding: 24px 16px 0;
+      }
+
+      .section {
+        padding: 48px 16px;
+      }
+
+      .info-card {
+        padding: 24px;
+      }
+
+      .detail-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Qwik<span>learn</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="studyhall-middle.html" class="active">Study Hall</a></li>
+      <li><a href="mathcamp.html">Math Camp</a></li>
+      <li><a href="mailto:qwiklearntutoring@gmail.com" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="sh-hero">
+  <div class="sh-hero-inner">
+    <div class="section-label">Weekly Summer Sessions</div>
+    <h1 class="sh-hero-title">QWIKLEARN<br>VIRTUAL<br><span class="orange">STUDY HALL</span></h1>
+    <p class="sh-hero-sub">Weekly middle school math homework and summer work Q&A — open door, no appointment needed.</p>
+    <a href="mailto:qwiklearntutoring@gmail.com" class="sh-hero-email">qwiklearntutoring@gmail.com to sign up</a>
+    <div class="sh-hero-actions">
+      <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">Sign Up Now</a>
+      <a href="#details" class="btn btn-outline">See Session Details</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="sh-hero-image">
+  <img src="images/studyhall-middle.jpg" alt="Middle School Study Hall">
+</div>
+
+<!-- INFO SECTION -->
+<section class="section info-section">
+  <div class="section-inner">
+    <div class="section-label">Middle School</div>
+    <h2 class="section-title">Grades 6-8 Study Hall</h2>
+    <p class="section-sub">Weekly open-door Q&A sessions for middle school math — homework help, summer work, and general math questions.</p>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="icon">📅</div>
+        <h3>Weekly Schedule</h3>
+        <p>Sessions run every Sunday throughout July and August. Pop in as often as you like during the session window.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🆓</div>
+        <h3>Completely Free</h3>
+        <p>No appointment needed. No commitment. Just show up with your questions and get the help you need.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">📚</div>
+        <h3>What's Covered</h3>
+        <p>Regular math homework, summer assignments, test prep, or any math question you're stuck on — we'll work through it together.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">💻</div>
+        <h3>100% Virtual</h3>
+        <p>Join from anywhere. All you need is an internet connection and your math questions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS SECTION -->
+<section class="section" id="details">
+  <div class="section-inner">
+    <div class="section-label">Session Details</div>
+    <h2 class="section-title">When and How to Join</h2>
+    <p class="section-sub">Get the link by email and drop in during your session time.</p>
+    <div class="details-grid">
+      <div class="detail-card">
+        <h3>📋 Session Schedule</h3>
+        <div class="detail-row">
+          <span class="detail-label">When</span>
+          <span class="detail-value">Every Sunday, July &amp; August</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Time</span>
+          <span class="detail-value"><span class="orange">12:00 pm – 2:00 pm EST</span></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Format</span>
+          <span class="detail-value">Open-door Q&A</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Grades</span>
+          <span class="detail-value">Grades 6-8</span>
+        </div>
+      </div>
+      <div class="detail-card">
+        <h3>📝 How to Join</h3>
+        <div class="detail-row">
+          <span class="detail-label">Step 1</span>
+          <span class="detail-value">Email to get the link</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Step 2</span>
+          <span class="detail-value">Join on any Sunday</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Step 3</span>
+          <span class="detail-value">Ask your questions</span>
+        </div>
+        <div class="detail-row" style="border-bottom:none;padding-top:12px;">
+          <span class="detail-label">Contact</span>
+          <span class="detail-value" style="color:#f5a623;">qwiklearntutoring@gmail.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<div class="cta-section">
+  <div style="max-width:600px;margin:0 auto;">
+    <div class="section-label" style="color:rgba(255,255,255,0.5);">Ready to join?</div>
+    <h2 class="section-title">Sign Up for Study Hall</h2>
+    <p class="section-sub">Email us to get the virtual session link. No cost, no commitment — just help when you need it.</p>
+    <div class="cta-email">qwiklearntutoring@gmail.com</div>
+    <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary" style="font-size:1.1rem;padding:14px 36px;">Email to Sign Up Today</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Qwik<span>learn</span></div>
+      <p class="footer-tagline">Expert Math Tutoring · Virtual · All Grades</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Ms. Steiner</a></li>
+        <li><a href="services.html">Services and Pricing</a></li>
+        <li><a href="studyhall-middle.html">Middle School Study Hall</a></li>
+        <li><a href="studyhall-high.html">High School Study Hall</a></li>
+        <li><a href="mathcamp.html">Math Camp 2026</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:qwiklearntutoring@gmail.com">qwiklearntutoring@gmail.com</a></li>
+        <li><a href="#">Sun-Thu: 8 am - 11 pm EST</a></li>
+        <li><a href="#">Friday: 8 am - 5 pm EST</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Qwiklearn. All rights reserved.</span>
+    <span>Built with ❤️ for students everywhere.</span>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  ham.addEventListener('click', () => nav.classList.toggle('open'));
+</script>
+
+</body>
+</html>
