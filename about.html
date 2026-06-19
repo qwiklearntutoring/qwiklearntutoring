@@ -6,188 +6,184 @@
   <title>About Ms. Steiner — Qwiklearn</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* ── ABOUT HERO ── */
-    .about-hero {
-      background: linear-gradient(135deg, var(--green-dark) 0%, #163a16 100%);
-      padding: 80px 24px 60px;
-      text-align: center;
-    }
-    .about-hero .section-label { color: rgba(255,255,255,0.6); }
-    .about-hero .section-title { color: var(--white); }
-
-    /* ── BIO SECTION ── */
-    .bio-section { padding: 80px 24px; }
-    .bio-grid {
+    /* ── PAGE LAYOUT ── */
+    .about-page {
       max-width: 1100px;
       margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .about-grid {
       display: grid;
       grid-template-columns: 340px 1fr;
-      gap: 64px;
+      gap: 60px;
       align-items: start;
     }
 
-    .bio-photo-wrap {
+    /* ── PHOTO ── */
+    .about-photo-wrap {
       position: sticky;
-      top: 90px;
-    }
-    .bio-photo {
-      width: 100%;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      object-fit: cover;
-      aspect-ratio: 3/4;
-      background: #e5eae4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .bio-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .bio-photo-placeholder {
-      width: 100%;
-      aspect-ratio: 3/4;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(160deg, #e5eae4 0%, #d0d9ce 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      box-shadow: var(--shadow-lg);
-    }
-    .photo-label {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--text-light);
-      text-align: center;
-      line-height: 1.4;
+      top: 100px;
     }
 
-    .bio-stat-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 16px;
-    }
-    .bio-stat {
-      background: var(--off-white);
-      border-radius: var(--radius-sm);
-      padding: 14px 16px;
-      text-align: center;
-    }
-    .bio-stat strong {
+    .about-photo {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
       display: block;
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--green);
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      background: #e8ede7;
     }
-    .bio-stat span { font-size: 0.78rem; color: var(--text-light); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
 
     /* ── BIO CONTENT ── */
-    .bio-content {}
+    .bio-content {
+      padding-top: 4px;
+    }
+
     .bio-name {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
-      font-weight: 900;
-      color: var(--text-dark);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .bio-title {
-      font-size: 1rem;
-      color: var(--orange);
+      font-family: var(--font-display, Georgia, serif);
+      font-size: 2.8rem;
       font-weight: 700;
-      margin-bottom: 32px;
+      color: #1a2e1a;
+      margin-bottom: 2px;
+      line-height: 1.1;
     }
+
+    .bio-subtitle {
+      font-size: 1rem;
+      color: #c4622a;
+      font-weight: 600;
+      margin-bottom: 28px;
+      letter-spacing: 0.02em;
+    }
+
     .bio-body p {
-      color: var(--text-mid);
       font-size: 1.05rem;
       line-height: 1.8;
-      margin-bottom: 20px;
+      color: #3d4d3d;
+      margin-bottom: 22px;
     }
 
-    .bio-section-head {
-      font-size: 0.72rem;
+    /* ── SECTION HEADERS ── */
+    .section-head {
+      font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--green);
-      margin: 36px 0 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .bio-section-head::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
+      color: #2a6b2a;
+      margin: 38px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e0e8e0;
     }
 
-    .edu-list, .exp-list {
+    /* ── LISTS ── */
+    .edu-list,
+    .exp-list {
       list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .edu-list li {
+      padding: 6px 0;
+      font-size: 1rem;
+      color: #2a3a2a;
+      line-height: 1.6;
+    }
+
+    .edu-list li strong {
+      font-weight: 700;
+      color: #1a2e1a;
+    }
+
+    .exp-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 6px 0;
+      font-size: 1rem;
+      color: #2a3a2a;
+      line-height: 1.5;
+      border-bottom: 1px solid #f0f4f0;
+    }
+
+    .exp-list li:last-child {
+      border-bottom: none;
+    }
+
+    .exp-detail {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-    }
-    .edu-list li, .exp-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.97rem;
-      color: var(--text-dark);
-      line-height: 1.5;
-    }
-    .edu-list .bullet, .exp-list .bullet {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--orange);
-      flex-shrink: 0;
-      margin-top: 7px;
     }
 
-    .exp-list .years {
+    .exp-detail .exp-title {
+      font-weight: 600;
+      color: #1a2e1a;
+    }
+
+    .exp-detail .exp-place {
+      font-size: 0.88rem;
+      color: #6a7a6a;
+    }
+
+    .exp-years {
       font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--white);
-      background: var(--teal-dark);
-      padding: 2px 8px;
+      font-weight: 600;
+      color: #ffffff;
+      background: #2a6b2a;
+      padding: 2px 14px;
       border-radius: 20px;
       white-space: nowrap;
       margin-top: 2px;
+      flex-shrink: 0;
+      margin-left: 16px;
     }
 
-    .exp-item {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .exp-place { color: var(--text-mid); font-size: 0.85rem; }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 820px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
 
-    /* ── CTA STRIP ── */
-    .cta-strip {
-      background: var(--off-white);
-      border-top: 3px solid var(--orange);
-      padding: 56px 24px;
-      text-align: center;
-    }
-    .cta-strip h2 {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-    .cta-strip p { color: var(--text-mid); margin-bottom: 24px; }
+      .about-photo-wrap {
+        position: static;
+        max-width: 300px;
+        margin: 0 auto;
+      }
 
-    @media (max-width: 900px) {
-      .bio-grid { grid-template-columns: 1fr; gap: 32px; }
-      .bio-photo-wrap { position: static; }
-      .bio-photo-placeholder { aspect-ratio: 1; max-width: 280px; margin: 0 auto; }
+      .bio-name {
+        font-size: 2.2rem;
+        text-align: center;
+      }
+
+      .bio-subtitle {
+        text-align: center;
+      }
+
+      .exp-list li {
+        flex-wrap: wrap;
+      }
+
+      .exp-years {
+        margin-left: 0;
+        margin-top: 4px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-page {
+        padding: 32px 16px 60px;
+      }
+
+      .bio-name {
+        font-size: 1.8rem;
+      }
+
+      .bio-body p {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
@@ -210,100 +206,80 @@
   </div>
 </nav>
 
-<!-- ABOUT HERO -->
-<div class="about-hero">
-  <div class="section-label">Meet Your Tutor</div>
-  <h1 class="section-title" style="color:white;margin:0 auto;max-width:600px;">The person behind the method</h1>
-</div>
+<!-- ===== ABOUT PAGE ===== -->
+<div class="about-page">
 
-<!-- BIO -->
-<section class="bio-section">
-  <div class="bio-grid">
+  <div class="about-grid">
 
-    <!-- LEFT: Photo + stats -->
-  <div class="bio-photo-wrap">
-  <img src="images/ms-steiner.jpg" alt="Ms. Steiner" style="width:100%;border-radius:20px;box-shadow:0 8px 48px rgba(0,0,0,0.18);">
-
-    <div class="bio-stat-row">
-      <div class="bio-stat"><strong>8+</strong><span>Years Tutoring</span></div>
-      <div class="bio-stat"><strong>PreK</strong><span>to College</span></div>
-      <div class="bio-stat"><strong>M.Sc.</strong><span>Physics (In Progress)</span></div>
-      <div class="bio-stat"><strong>100%</strong><span>Virtual</span></div>
+    <!-- LEFT: Photo -->
+    <div class="about-photo-wrap">
+      <img src="images/ms-steiner.jpg" alt="Ms. Steiner" class="about-photo">
     </div>
-  </div>
 
-    <!-- RIGHT: Bio text -->
+    <!-- RIGHT: Bio -->
     <div class="bio-content">
-      <div class="bio-name">Ms. Steiner</div>
-      <div class="bio-title">Math &amp; Physics Tutor · Qwiklearn Founder</div>
 
-      
-    <div class="bio-body">
+      <div class="bio-name">Ms. Steiner</div>
+      <div class="bio-subtitle">Math &amp; Physics Tutor · Qwiklearn Founder</div>
+
+      <div class="bio-body">
         <p>Hi there, my name is Ms. Steiner.</p>
-        <p>
-        I started tutoring while I was studying for my degree in University. In doing so I discovered a love and passion for teaching. I take great pride in guiding my students on the path to success. I have found that my excitement and love for the topics I teach can be infectious. It is a great joy to be able to share and spread my love for learning. I have taught students from preschool age up to and including college level. When I teach, I choose to create a well-rounded experience for my students where I target test taking skills, gaps in knowledge and teaching them to work independently. In my free time I love to hike, travel, watch physics documentaries and ponder my place in the universe.
-        </p>
+        <p>I started tutoring while I was studying for my degree in University. In doing so I discovered a love and passion for teaching. I take great pride in guiding my students on the path to success. I have found that my excitement and love for the topics I teach can be infectious. It is a great joy to be able to share and spread my love for learning. I have taught students from preschool age up to and including college level. When I teach, I choose to create a well-rounded experience for my students where I target test taking skills, gaps in knowledge and teaching them to work independently. In my free time I love to hike, travel, watch physics documentaries and ponder my place in the universe.</p>
       </div>
 
-      <div class="bio-section-head">Education</div>
+      <div class="section-head">Education</div>
       <ul class="edu-list">
-        <li><span class="bullet"></span><span><strong>B.Sc. — Physics</strong>, CUNY</span></li>
-        <li><span class="bullet"></span><span><strong>M.Sc. — Physics</strong> (In Progress)</span></li>
+        <li><strong>B.Sc. — Physics</strong>, CUNY</li>
+        <li><strong>M.Sc. — Physics</strong> (In Progress)</li>
       </ul>
 
-      <div class="bio-section-head">Teaching Experience</div>
+      <div class="section-head">Teaching Experience</div>
       <ul class="exp-list">
         <li>
-          <span class="bullet"></span>
-          <div class="exp-item">
-            <span><strong>Math &amp; Physics Tutoring</strong></span>
+          <div class="exp-detail">
+            <span class="exp-title">Math &amp; Physics Tutoring</span>
             <span class="exp-place">Private clients, all levels</span>
           </div>
-          <span class="years">8 yrs</span>
+          <span class="exp-years">8 yrs</span>
         </li>
         <li>
-          <span class="bullet"></span>
-          <div class="exp-item">
-            <span><strong>Physics &amp; Pre-Calculus Teaching</strong></span>
+          <div class="exp-detail">
+            <span class="exp-title">Physics &amp; Pre-Calculus Teaching</span>
             <span class="exp-place">Private school</span>
           </div>
-          <span class="years">2 yrs</span>
+          <span class="exp-years">2 yrs</span>
         </li>
         <li>
-          <span class="bullet"></span>
-          <div class="exp-item">
-            <span><strong>GED Math</strong></span>
+          <div class="exp-detail">
+            <span class="exp-title">GED Math</span>
             <span class="exp-place">GED program for refugees</span>
           </div>
-          <span class="years">3 yrs</span>
+          <span class="exp-years">3 yrs</span>
         </li>
         <li>
-          <span class="bullet"></span>
-          <div class="exp-item">
-            <span><strong>Online Math Coaching</strong></span>
+          <div class="exp-detail">
+            <span class="exp-title">Online Math Coaching</span>
             <span class="exp-place">Art of Problem Solving (AoPS)</span>
           </div>
-          <span class="years">4 yrs</span>
+          <span class="exp-years">4 yrs</span>
         </li>
         <li>
-          <span class="bullet"></span>
-          <div class="exp-item">
-            <span><strong>Math Tutoring Centers</strong></span>
+          <div class="exp-detail">
+            <span class="exp-title">Math Tutoring Centers</span>
             <span class="exp-place">Mathnasium &amp; Sanidas</span>
           </div>
-          <span class="years">2 yrs</span>
+          <span class="exp-years">2 yrs</span>
         </li>
       </ul>
-    </div>
-  </div>
-</section>
 
-<!-- CTA -->
-<div class="cta-strip">
-  <h2>Ready to work with Ms. Steiner?</h2>
-  <p>Reach out by email to schedule your first session — no commitment required.</p>
-  <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">qwiklearntutoring@gmail.com</a>
+    </div>
+    <!-- /bio-content -->
+
+  </div>
+  <!-- /about-grid -->
+
 </div>
+<!-- /about-page -->
 
 <!-- FOOTER -->
 <footer>
@@ -342,5 +318,6 @@
   const nav = document.getElementById('navLinks');
   ham.addEventListener('click', () => nav.classList.toggle('open'));
 </script>
+
 </body>
 </html>
