@@ -358,11 +358,8 @@
 
     .hero-img-wrap img {
       width: 100%;
-      height: 440px;
-      object-fit: cover;
       border-radius: 16px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.5);
-      display: block;
     }
 
     .hero-badge {
@@ -552,6 +549,20 @@
       padding: 22px 24px;
     }
 
+    .svc-price {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 4px;
+    }
+
+    .svc-price span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #8a9a8a;
+    }
+
     .svc-desc {
       color: #5a6a5a;
       font-size: 0.9rem;
@@ -573,7 +584,7 @@
       gap: 10px;
     }
 
-    /* ── PROMO BANNERS ── */
+    /* ── PROMO BANNER ── */
     .promo-banner {
       background: #0d2e1a;
       padding: 64px 24px;
@@ -606,42 +617,6 @@
       justify-content: center;
       flex-wrap: wrap;
       position: relative;
-    }
-
-    /* ── STUDY HALL PROMO ── */
-    .studyhall-promo {
-      background: linear-gradient(135deg, #0a3a4a 0%, #0d4a5a 100%);
-      padding: 64px 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      border-top: 3px solid #f5a623;
-      border-bottom: 3px solid #f5a623;
-    }
-
-    .studyhall-promo h2 {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 900;
-      color: #ffffff;
-      margin-bottom: 12px;
-      position: relative;
-    }
-
-    .studyhall-promo p {
-      color: rgba(255,255,255,0.75);
-      font-size: 1.05rem;
-      margin-bottom: 28px;
-      position: relative;
-    }
-
-    .studyhall-promo .btn-outline {
-      border-color: rgba(255,255,255,0.4);
-    }
-
-    .studyhall-promo .btn-outline:hover {
-      border-color: #f5a623;
-      background: rgba(245,166,35,0.1);
     }
 
     /* ── RESPONSIVE ── */
@@ -728,14 +703,14 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-eyebrow">Expert Math and Science Tutoring</div>
+    <div class="hero-eyebrow">Expert Math &amp; Science Tutoring</div>
     <h1 class="hero-title">
       SIMPLE<br>
       <span class="accent">MEMORABLE</span><br>
       MATH
     </h1>
     <p class="hero-body">
-      From fundamental elementary math to advanced high school calculus and physics, structured, rigorous instruction that turns frustration into real progress.
+      From fundamental elementary math to advanced high school calculus and physics — structured, rigorous instruction that turns frustration into real progress.
     </p>
     <div class="hero-pillars">
       <div class="hero-pillar"><span class="dot"></span> Targeting Knowledge Gaps</div>
@@ -749,14 +724,16 @@
   </div>
   <div class="hero-visual">
     <div class="hero-img-wrap">
-      <img src="images/Books.jpg" alt="Math tutoring">
+      <div style="width:100%;height:440px;border-radius:16px;background:linear-gradient(135deg,#0d2e1a,#163a2e);display:flex;align-items:center;justify-content:center;border:2px solid rgba(245,166,35,0.2);">
+        <span style="color:rgba(255,255,255,0.2);font-size:1rem;font-weight:700;">[ Your Hero Image ]</span>
+      </div>
       <div class="hero-badge">
         <strong>8+ Years</strong>
         Tutoring Experience
       </div>
       <div class="hero-badge2">
         <strong>All Levels</strong>
-        Grades 1 to College
+        Grades 1 → College
       </div>
     </div>
   </div>
@@ -767,22 +744,22 @@
   <div class="section-inner">
     <div class="section-label">Why Qwiklearn</div>
     <h2 class="section-title">A methodology built for results</h2>
-    <p class="section-sub">Three pillars that guide every session, whether it's homework help or test prep.</p>
+    <p class="section-sub">Three pillars that guide every session — whether it's homework help or test prep.</p>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon">🎯</div>
         <h3>Targeted Gap-Filling</h3>
-        <p>We identify exactly where understanding breaks down and rebuild from that point, no wasted time on what's already mastered.</p>
+        <p>We identify exactly where understanding breaks down and rebuild from that point — no wasted time on what's already mastered.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">📝</div>
         <h3>Test-Taking Strategy</h3>
-        <p>Beyond content knowledge: pacing, process of elimination, and exam day confidence for standardized tests and school exams alike.</p>
+        <p>Beyond content knowledge: pacing, process-of-elimination, and exam-day confidence for standardized tests and school exams alike.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">🚀</div>
         <h3>Independent Learners</h3>
-        <p>We build habits and problem-solving frameworks that last a lifetime.</p>
+        <p>The goal is for students to eventually not need us. We build habits and problem-solving frameworks that last a lifetime.</p>
       </div>
     </div>
   </div>
@@ -793,59 +770,52 @@
   <div class="section-inner">
     <div class="section-label">Our Services</div>
     <h2 class="section-title">Find the right fit</h2>
-    <p class="section-sub">1 on 1 virtual tutoring tailored to every level, from grade school to high school advanced.</p>
+    <p class="section-sub">1-on-1 virtual tutoring tailored to every level — from grade school to high school advanced.</p>
     <div class="services-grid">
       <div class="svc-card">
         <div class="svc-header green">
           <div class="svc-level">Elementary</div>
-          <div class="svc-name">Math Grades 1-5</div>
+          <div class="svc-name">Math Grades 1–5</div>
           <div class="svc-grade">Building strong foundations</div>
         </div>
         <div class="svc-body">
-          <p class="svc-desc">Number sense, fractions, basic algebra concepts, taught with patience and structure.</p>
-          <a href="services.html" class="svc-link">Learn More →</a>
+          <div class="svc-price">$75<span>/hr+</span></div>
+          <p class="svc-desc">Number sense, fractions, basic algebra concepts — taught with patience and structure.</p>
+          <a href="services.html" class="svc-link">Book a session →</a>
         </div>
       </div>
       <div class="svc-card">
         <div class="svc-header teal">
           <div class="svc-level">Middle School</div>
-          <div class="svc-name">Math Grades 6-8</div>
+          <div class="svc-name">Math Grades 6–8</div>
           <div class="svc-grade">Bridging to high school</div>
         </div>
         <div class="svc-body">
-          <p class="svc-desc">Ratios, geometry, pre-algebra and beyond, closing gaps before high school begins.</p>
-          <a href="services.html" class="svc-link">Learn More →</a>
+          <div class="svc-price">$85<span>/hr+</span></div>
+          <p class="svc-desc">Ratios, geometry, pre-algebra and beyond — closing gaps before high school begins.</p>
+          <a href="services.html" class="svc-link">Book a session →</a>
         </div>
       </div>
       <div class="svc-card">
         <div class="svc-header orange">
           <div class="svc-level">High School</div>
-          <div class="svc-name">Algebra to Pre-Calc</div>
+          <div class="svc-name">Algebra → Pre-Calc</div>
           <div class="svc-grade">Algebra 1, 2 · Trig · Pre-Calc</div>
         </div>
         <div class="svc-body">
+          <div class="svc-price">$100<span>/hr+</span></div>
           <p class="svc-desc">Rigorous instruction across the full high school math sequence, including test prep.</p>
-          <a href="services.html" class="svc-link">Learn More →</a>
+          <a href="services.html" class="svc-link">Book a session →</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STUDY HALL PROMO -->
-<div class="studyhall-promo">
-  <h2>Virtual Study Hall</h2>
-  <p>Middle and high school students, drop in for guided homework help, test prep, and focused study sessions with Ms. Steiner.</p>
-  <div class="promo-actions">
-    <a href="studyhall.html" class="btn btn-primary">Learn More →</a>
-    <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-outline">Email to Join</a>
-  </div>
-</div>
-
-<!-- MATH CAMP PROMO -->
+<!-- PROMO BANNER -->
 <div class="promo-banner">
   <h2>Virtual Math Camp 2026 — Now Enrolling</h2>
-  <p>Sunday sessions all summer · Grades 1-5 · Number puzzles, logic games and next-grade readiness</p>
+  <p>Sunday sessions all summer · Grades 1–5 · Number puzzles, logic games & next-grade readiness</p>
   <div class="promo-actions">
     <a href="mathcamp.html" class="btn btn-primary">See Math Camp →</a>
     <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-outline">Email to Sign Up</a>
@@ -864,7 +834,7 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Ms. Steiner</a></li>
-        <li><a href="services.html">Services and Pricing</a></li>
+        <li><a href="services.html">Services &amp; Pricing</a></li>
         <li><a href="studyhall.html">Virtual Study Hall</a></li>
         <li><a href="mathcamp.html">Math Camp 2026</a></li>
       </ul>
@@ -873,8 +843,8 @@
       <h4>Contact</h4>
       <ul>
         <li><a href="mailto:qwiklearntutoring@gmail.com">qwiklearntutoring@gmail.com</a></li>
-        <li><a href="#">Sun-Thu: 8 am - 11 pm EST</a></li>
-        <li><a href="#">Friday: 8 am - 5 pm EST</a></li>
+        <li><a href="#">Sun–Thu: 8 am – 11 pm EST</a></li>
+        <li><a href="#">Friday: 8 am – 5 pm EST</a></li>
       </ul>
     </div>
   </div>
