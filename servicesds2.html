@@ -416,57 +416,28 @@
     .packages-header-row {
       display: flex;
       justify-content: space-between;
-      align-items: stretch;
-      gap: 48px;
+      align-items: flex-end;
+      gap: 32px;
       flex-wrap: wrap;
     }
 
     .packages-header-row .text-content {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
 
-    .packages-header-row .btn-wrapper {
-      display: flex;
-      align-items: stretch;
+    .packages-header-row .btn {
       flex-shrink: 0;
-      min-width: 280px;
+      margin-bottom: 4px;
+      font-size: 1.2rem;
+      padding: 18px 48px;
     }
 
-    .packages-header-row .btn-green {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 24px 48px;
-      font-size: 1.4rem;
-      width: 100%;
-      min-height: 100%;
-      text-align: center;
-      border-radius: 16px;
-      background: #0d2e1a;
-      color: #ffffff;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-      border: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .packages-header-row .btn-green:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-      background: #1a4a2a;
-    }
-
-    .packages-header-row .btn-green .sub-text {
+    .packages-header-row .btn .sub-text {
       display: block;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 400;
-      opacity: 0.7;
-      margin-top: 4px;
+      opacity: 0.8;
+      margin-top: 2px;
     }
 
     /* ── PACKAGES SECTION ── */
@@ -519,6 +490,8 @@
       position: absolute;
       top: 16px;
       right: 16px;
+      background: #ffffff;
+      color: #c05010;
       font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -527,13 +500,8 @@
       border-radius: 20px;
     }
 
-    .pkg-card.featured-5 .pkg-featured-badge {
-      background: #ffffff;
-      color: #c05010;
-    }
-
     .pkg-card.featured-10 .pkg-featured-badge {
-      background: #2a6b2a;
+      background: #c05010;
       color: #ffffff;
     }
 
@@ -687,15 +655,11 @@
         gap: 16px;
       }
 
-      .packages-header-row .btn-wrapper {
+      .packages-header-row .btn {
+        font-size: 1rem;
+        padding: 14px 32px;
         width: 100%;
-        min-width: unset;
-      }
-
-      .packages-header-row .btn-green {
-        font-size: 1.1rem;
-        padding: 18px 32px;
-        min-height: auto;
+        text-align: center;
       }
 
       .packages-grid {
@@ -742,9 +706,9 @@
         padding: 20px;
       }
 
-      .packages-header-row .btn-green {
-        font-size: 0.95rem;
-        padding: 14px 24px;
+      .packages-header-row .btn {
+        font-size: 0.9rem;
+        padding: 12px 24px;
       }
     }
   </style>
@@ -844,12 +808,10 @@
         <h2 class="section-title">Session Packages</h2>
         <p class="section-sub">Book multiple sessions at once and save. Perfect for students who want consistent weekly progress.</p>
       </div>
-      <div class="btn-wrapper">
-        <a href="bookappointment.html" class="btn-green">
-          Book Appointment
-          <span class="sub-text">Get signed up today!</span>
-        </a>
-      </div>
+      <a href="bookappointment.html" class="btn btn-primary">
+        Book Appointment
+        <span class="sub-text">Get signed up today!</span>
+      </a>
     </div>
     <div class="packages-grid">
 
