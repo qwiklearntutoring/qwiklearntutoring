@@ -513,17 +513,17 @@
       position: relative;
     }
 
-    /* Light to dark gradients */
-    .svc-header.light {
-      background: linear-gradient(135deg, #2a6a3a 0%, #1a4a2a 100%);
+    /* Dark to light gradients */
+    .svc-header.dark {
+      background: linear-gradient(135deg, #0a1f0a 0%, #0d2e1a 100%);
     }
 
     .svc-header.mid {
-      background: linear-gradient(135deg, #1a4a2a 0%, #0d2e1a 100%);
+      background: linear-gradient(135deg, #0d2e1a 0%, #1a4a2a 100%);
     }
 
-    .svc-header.dark {
-      background: linear-gradient(135deg, #0d2e1a 0%, #0a1f0a 100%);
+    .svc-header.light {
+      background: linear-gradient(135deg, #1a4a2a 0%, #2a6a3a 100%);
     }
 
     .svc-level {
@@ -540,7 +540,7 @@
       font-size: 1.6rem;
       font-weight: 900;
       color: #ffffff;
-      line-height: 1.2;
+      line-height: 1;
       margin-bottom: 8px;
     }
 
@@ -574,9 +574,9 @@
       gap: 10px;
     }
 
-    /* ── STUDY HALL PROMO (ORANGE BACKGROUND) ── */
+    /* ── STUDY HALL PROMO (ORANGE) ── */
     .studyhall-promo {
-      background: #f5a623;
+      background: linear-gradient(135deg, #c05010 0%, #f5a623 100%);
       padding: 64px 24px;
       text-align: center;
       position: relative;
@@ -589,13 +589,13 @@
       font-family: Georgia, 'Times New Roman', serif;
       font-size: clamp(2rem, 4vw, 3.2rem);
       font-weight: 900;
-      color: #0a1f0a;
+      color: #ffffff;
       margin-bottom: 12px;
       position: relative;
     }
 
     .studyhall-promo p {
-      color: rgba(10,31,10,0.85);
+      color: rgba(255,255,255,0.85);
       font-size: 1.05rem;
       margin-bottom: 28px;
       position: relative;
@@ -612,13 +612,13 @@
     }
 
     .studyhall-promo .btn-outline {
-      border-color: rgba(10,31,10,0.4);
-      color: #0a1f0a;
+      border-color: rgba(255,255,255,0.5);
+      color: #ffffff;
     }
 
     .studyhall-promo .btn-outline:hover {
-      border-color: #0a1f0a;
-      background: rgba(10,31,10,0.1);
+      border-color: #ffffff;
+      background: rgba(255,255,255,0.1);
     }
 
     /* ── MATH CAMP PROMO (GREEN) ── */
@@ -817,13 +817,13 @@
     <p class="section-sub">1 on 1 virtual tutoring tailored to every level, from grade school to high school advanced.</p>
     <div class="services-grid">
       <div class="svc-card">
-        <div class="svc-header light">
-          <div class="svc-level">Elementary</div>
-          <div class="svc-name">Math Grades 1-5</div>
-          <div class="svc-grade">Building strong foundations</div>
+        <div class="svc-header dark">
+          <div class="svc-level">High School</div>
+          <div class="svc-name">Algebra 1 and Algebra 2</div>
+          <div class="svc-grade">Trig · Pre-Calc</div>
         </div>
         <div class="svc-body">
-          <p class="svc-desc">Number sense, fractions, basic algebra concepts, taught with patience and structure.</p>
+          <p class="svc-desc">Rigorous high school math instruction, including test prep and problem-solving strategies.</p>
           <a href="services.html" class="svc-link">Learn More →</a>
         </div>
       </div>
@@ -839,13 +839,13 @@
         </div>
       </div>
       <div class="svc-card">
-        <div class="svc-header dark">
-          <div class="svc-level">High School</div>
-          <div class="svc-name">Algebra 1, Algebra 2, Trig, Pre-Calc</div>
-          <div class="svc-grade">&nbsp;</div>
+        <div class="svc-header light">
+          <div class="svc-level">Elementary</div>
+          <div class="svc-name">Math Grades 1-5</div>
+          <div class="svc-grade">Building strong foundations</div>
         </div>
         <div class="svc-body">
-          <p class="svc-desc">Rigorous high school math instruction, including test prep and problem-solving strategies.</p>
+          <p class="svc-desc">Number sense, fractions, basic algebra concepts, taught with patience and structure.</p>
           <a href="services.html" class="svc-link">Learn More →</a>
         </div>
       </div>
@@ -853,7 +853,7 @@
   </div>
 </section>
 
-<!-- STUDY HALL PROMO (ORANGE BACKGROUND) -->
+<!-- STUDY HALL PROMO (ORANGE) -->
 <div class="studyhall-promo">
   <h2>Summer Study Hall 2026 (Virtual) — Now Enrolling</h2>
   <p>Middle and high school students, drop in for guided homework help, test prep, and focused study sessions with Ms. Steiner.</p>
