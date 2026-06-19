@@ -6,120 +6,6 @@
   <title>About Ms. Steiner — Qwiklearn</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* ── OVERRIDE NAV WITH GREEN STYLE ── */
-    .navbar {
-      background: linear-gradient(135deg, #1a3a1a 0%, #0d260d 100%);
-      padding: 0 24px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.15);
-    }
-
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 70px;
-    }
-
-    .nav-logo {
-      font-family: var(--font-display, Georgia, serif);
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: #ffffff;
-      text-decoration: none;
-      letter-spacing: -0.5px;
-    }
-
-    .nav-logo span {
-      color: #f5a623;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links li a {
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-
-    .nav-links li a:hover,
-    .nav-links li a.active {
-      color: #f5a623;
-    }
-
-    .nav-links li a.nav-cta {
-      background: #f5a623;
-      color: #1a2e1a;
-      padding: 8px 20px;
-      border-radius: 30px;
-      font-weight: 700;
-      transition: background 0.2s;
-    }
-
-    .nav-links li a.nav-cta:hover {
-      background: #e09515;
-      color: #0d260d;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-
-    .hamburger span {
-      width: 26px;
-      height: 3px;
-      background: #ffffff;
-      border-radius: 3px;
-      transition: 0.3s;
-    }
-
-    @media (max-width: 820px) {
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: #1a3a1a;
-        padding: 20px 24px;
-        gap: 16px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links li a.nav-cta {
-        display: inline-block;
-        text-align: center;
-      }
-    }
-
     /* ── PAGE LAYOUT ── */
     .about-page {
       max-width: 1100px;
@@ -303,7 +189,6 @@
 </head>
 <body>
 
-<!-- ===== GREEN NAVBAR ===== -->
 <nav class="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">Qwik<span>learn</span></a>
@@ -328,7 +213,7 @@
 
     <!-- LEFT: Photo -->
     <div class="about-photo-wrap">
-      <img src="./images/ms-steiner.jpg" alt="Ms. Steiner" class="about-photo">
+      <img src="images/ms-steiner.jpg" alt="Ms. Steiner" class="about-photo">
     </div>
 
     <!-- RIGHT: Bio -->
