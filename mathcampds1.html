@@ -208,8 +208,9 @@
     /* ── CAMP HERO ── */
     .camp-hero {
       background: linear-gradient(135deg, #0a1f0a 0%, #0d2e1a 55%, #1a4a2a 100%);
-      padding: 60px 24px 40px;
-      text-align: center;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
       position: relative;
       overflow: hidden;
     }
@@ -218,14 +219,20 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(192,80,16,0.06) 0%, transparent 70%);
+      background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(192,80,16,0.06) 0%, transparent 70%);
     }
 
-    .camp-hero-content {
-      max-width: 800px;
+    .camp-hero-inner {
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
       position: relative;
       z-index: 1;
+      width: 100%;
     }
 
     .camp-year-badge {
@@ -259,16 +266,12 @@
       font-size: 1.1rem;
       line-height: 1.7;
       margin-bottom: 20px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .camp-meta-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      justify-content: center;
       margin-bottom: 32px;
     }
 
@@ -289,21 +292,41 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+    }
+
+    .camp-img-box {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+      background: linear-gradient(135deg, #1a3010, #2a1800);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
       justify-content: center;
     }
 
-    /* ── HERO IMAGE ── */
-    .camp-hero-image {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 24px 0;
+    .camp-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .camp-hero-image img {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
-      display: block;
+    .camp-img-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .camp-img-placeholder span {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1.5;
     }
 
     /* ── SECTION COMMON ── */
@@ -571,6 +594,14 @@
     }
 
     @media (max-width: 900px) {
+      .camp-hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .camp-hero-visual {
+        display: none;
+      }
+
       .tiers-grid {
         grid-template-columns: 1fr;
       }
@@ -588,12 +619,8 @@
     }
 
     @media (max-width: 480px) {
-      .camp-hero {
-        padding: 40px 16px 24px;
-      }
-
-      .camp-hero-image {
-        padding: 24px 16px 0;
+      .camp-hero-inner {
+        padding: 60px 16px;
       }
 
       .section {
@@ -636,33 +663,35 @@
 
 <!-- HERO -->
 <div class="camp-hero">
-  <div class="camp-hero-content">
-    <div class="camp-year-badge">Summer 2026</div>
-    <h1 class="camp-title">
-      QWIKLEARN<br>
-      VIRTUAL<br>
-      <span class="orange">MATH</span><br>
-      CAMP
-    </h1>
-    <p class="camp-subtitle">
-      A fun summer filled with number and logic puzzles, next-grade readiness, and math games galore — all virtual, all Sunday mornings.
-    </p>
-    <div class="camp-meta-chips">
-      <span class="meta-chip">📅 July – August</span>
-      <span class="meta-chip">📅 Sundays</span>
-      <span class="meta-chip">👦 Grades 1st–5th</span>
-      <span class="meta-chip">💻 100% Virtual</span>
+  <div class="camp-hero-inner">
+    <div class="camp-hero-content">
+      <div class="camp-year-badge">Summer 2026</div>
+      <h1 class="camp-title">
+        QWIKLEARN<br>
+        VIRTUAL<br>
+        <span class="orange">MATH</span><br>
+        CAMP
+      </h1>
+      <p class="camp-subtitle">
+        A fun summer filled with number and logic puzzles, next-grade readiness, and math games galore — all virtual, all Sunday mornings.
+      </p>
+      <div class="camp-meta-chips">
+        <span class="meta-chip">📅 July – August</span>
+        <span class="meta-chip">📅 Sundays</span>
+        <span class="meta-chip">👦 Grades 1st–5th</span>
+        <span class="meta-chip">💻 100% Virtual</span>
+      </div>
+      <div class="camp-hero-actions">
+        <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">Sign Up Now</a>
+        <a href="#tiers" class="btn btn-outline">See Sessions</a>
+      </div>
     </div>
-    <div class="camp-hero-actions">
-      <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">Sign Up Now</a>
-      <a href="#tiers" class="btn btn-outline">See Sessions</a>
+    <div class="camp-hero-visual">
+      <div class="camp-img-box">
+        <img src="images/mathcamp-hero.png" alt="Math Camp 2026">
+      </div>
     </div>
   </div>
-</div>
-
-<!-- HERO IMAGE - FULL WIDTH -->
-<div class="camp-hero-image">
-  <img src="images/mathcamp-hero.jpg" alt="Math Camp 2026">
 </div>
 
 <!-- TIERS -->
