@@ -154,11 +154,8 @@
       border-bottom: none !important;
     }
 
-    /* On desktop, show dropdown on hover */
-    @media (min-width: 821px) {
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
 
     @media (max-width: 820px) {
@@ -201,7 +198,6 @@
         background: transparent;
         padding-left: 16px;
         border: none;
-        margin-top: 4px;
       }
 
       .dropdown.open .dropdown-content {
@@ -831,8 +827,8 @@
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
-      <li class="dropdown" id="studyHallDropdown">
-        <a href="#" class="dropbtn" id="studyHallDropbtn">Study Hall</a>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Study Hall</a>
         <ul class="dropdown-content">
           <li><a href="studyhallms.html">Middle School</a></li>
           <li><a href="studyhallhs.html">High School</a></li>
@@ -969,8 +965,8 @@
   <h2>Math Camp 2026 (Virtual) — Now Enrolling</h2>
   <p>Sunday sessions all summer · Grades 1-5 · Number puzzles, logic games and next-grade readiness</p>
   <div class="promo-actions">
-    <a href="mathcamp.html" class="btn btn-primary">See More →</a>
-    <a href="mailto:qwiklearntutoring@gmail.com?subject=Math%20Camp%202026%20Inquiry&body=Hi%20Ms.%20Steiner%2C%0A%0AI%27m%20interested%20in%20learning%20more%20about%20Math%20Camp%202026%20for%20my%20child.%0A%0APlease%20let%20me%20know%20about%20availability%20and%20next%20steps.%0A%0AThank%20you%21" class="btn btn-outline">Email to Sign Up</a>
+    <a href="mathcamp.html" class="btn btn-primary">See Math Camp →</a>
+    <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-outline">Email to Sign Up</a>
   </div>
 </div>
 
@@ -1013,9 +1009,9 @@
   ham.addEventListener('click', () => nav.classList.toggle('open'));
 
   // Handle dropdown on mobile
-  const dropdown = document.getElementById('studyHallDropdown');
+  const dropdown = document.querySelector('.dropdown');
   if (dropdown) {
-    const dropbtn = document.getElementById('studyHallDropbtn');
+    const dropbtn = dropdown.querySelector('.dropbtn');
     dropbtn.addEventListener('click', function(e) {
       if (window.innerWidth <= 820) {
         e.preventDefault();
