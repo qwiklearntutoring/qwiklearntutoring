@@ -321,11 +321,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
-      align-items: stretch;
-    }
-
-    .sh-hero-image {
-      display: flex;
+      align-items: start;
     }
 
     .sh-hero-image img {
@@ -333,38 +329,35 @@
       border-radius: 16px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.5);
       display: block;
-      object-fit: cover;
-      height: 100%;
     }
 
     .sh-hero-info {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      justify-content: space-between;
+      gap: 24px;
     }
 
     .sh-hero-info .info-top h2 {
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       font-weight: 900;
       color: #1a2e1a;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .sh-hero-info .info-top p {
       color: #5a6a5a;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       line-height: 1.7;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .sh-hero-info .detail-row {
       display: flex;
       justify-content: space-between;
-      padding: 12px 0;
+      padding: 10px 0;
       border-bottom: 1px solid #f0f4f0;
-      font-size: 1.05rem;
+      font-size: 1rem;
     }
 
     .sh-hero-info .detail-row:last-child {
@@ -389,38 +382,32 @@
     .signup-tile {
       background: linear-gradient(135deg, #0d2e1a 0%, #1a4a2a 100%);
       border-radius: 16px;
-      padding: 40px 36px;
+      padding: 32px;
       text-align: center;
       border: 3px solid #f5a623;
       box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-      flex: 1;
-      min-height: 160px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      margin-top: 8px;
     }
 
     .signup-tile h3 {
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 900;
       color: #ffffff;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .signup-tile p {
-      color: rgba(255,255,255,0.75);
-      font-size: 1.05rem;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
       line-height: 1.6;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .signup-tile .btn {
       width: 100%;
       text-align: center;
       display: block;
-      padding: 16px 32px;
-      font-size: 1.05rem;
     }
 
     /* ── RESPONSIVE ── */
@@ -430,19 +417,9 @@
         gap: 32px;
       }
 
-      .sh-hero-image img {
-        height: auto;
-        max-height: 500px;
-      }
-
       .signup-tile .btn {
         width: auto;
         display: inline-block;
-      }
-
-      .signup-tile {
-        min-height: auto;
-        padding: 32px 28px;
       }
     }
 
@@ -465,7 +442,6 @@
 
       .sh-hero-info .detail-row {
         font-size: 0.9rem;
-        padding: 8px 0;
       }
 
       .signup-tile {
@@ -473,16 +449,7 @@
       }
 
       .signup-tile h3 {
-        font-size: 1.3rem;
-      }
-
-      .signup-tile p {
-        font-size: 0.9rem;
-      }
-
-      .signup-tile .btn {
-        font-size: 0.9rem;
-        padding: 12px 20px;
+        font-size: 1.2rem;
       }
     }
 
@@ -637,7 +604,7 @@
       </div>
     </div>
 
-    <!-- SIGN UP TILE - Taller to fill empty space -->
+    <!-- SIGN UP TILE - Sits in the empty space next to the bottom of the image -->
     <div class="signup-tile">
       <h3>Ready to Join?</h3>
       <p>Contact us today to register for Middle School Study Hall.</p>
