@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services &amp; Pricing — Qwiklearn</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 72px 24px 56px;
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; }
+    .page-hero .section-label { color: var(--teal); }
+    .page-hero .section-title { color: var(--white); margin-bottom: 10px; }
+    .page-hero .section-sub { color: rgba(255,255,255,0.65); }
+
+    /* ── SERVICES TABLE ── */
+    .services-section { background: var(--off-white); }
+    .level-block { margin-bottom: 56px; }
+    .level-block:last-child { margin-bottom: 0; }
+
+    .level-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .level-badge {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--white);
+    }
+    .badge-green  { background: var(--green); }
+    .badge-teal   { background: var(--teal-dark); }
+    .badge-orange { background: var(--orange); }
+
+    .level-title {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 900;
+    }
+
+    .svc-table {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .svc-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr 1.5fr 160px;
+      align-items: center;
+      padding: 0 28px;
+      border-bottom: 1px solid var(--border);
+      min-height: 72px;
+      gap: 16px;
+      transition: background 0.15s;
+    }
+    .svc-row:last-child { border-bottom: none; }
+    .svc-row.header-row {
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      min-height: 48px;
+    }
+    .svc-row:not(.header-row):hover { background: var(--off-white); }
+
+    .svc-row-name { font-weight: 700; font-size: 1rem; }
+    .svc-row-desc { color: var(--text-mid); font-size: 0.88rem; }
+    .svc-row-duration { color: var(--text-mid); font-size: 0.9rem; }
+    .svc-price-col { font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; color: var(--green); }
+    .svc-package {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .svc-book-btn {
+      background: var(--orange);
+      color: var(--white);
+      padding: 9px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-block;
+      text-align: center;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .svc-book-btn:hover { background: var(--orange-light); transform: translateY(-1px); }
+
+    /* ── PACKAGES ── */
+    .packages-section {}
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .pkg-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 2px solid var(--border);
+      background: var(--white);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pkg-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .pkg-card.featured { border-color: var(--orange); }
+    .pkg-header {
+      padding: 28px 28px 22px;
+      background: var(--off-white);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .pkg-card.featured .pkg-header { background: var(--orange); }
+    .pkg-featured-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--white);
+      color: var(--orange);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .pkg-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+    .pkg-card.featured .pkg-name { color: var(--white); }
+    .pkg-sessions { color: var(--text-mid); font-size: 0.9rem; }
+    .pkg-card.featured .pkg-sessions { color: rgba(255,255,255,0.8); }
+    .pkg-body { padding: 24px 28px; }
+    .pkg-price {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pkg-per { font-size: 0.85rem; color: var(--text-light); margin-bottom: 16px; }
+    .pkg-savings {
+      display: inline-block;
+      background: rgba(31,184,195,0.1);
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .pkg-features { list-style: none; margin-bottom: 24px; }
+    .pkg-features li {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pkg-features li:last-child { border-bottom: none; }
+    .pkg-features .check { color: var(--green); font-weight: 700; }
+
+    @media (max-width: 900px) {
+      .svc-row {
+        grid-template-columns: 1fr;
+        padding: 16px 20px;
+        gap: 6px;
+        min-height: auto;
+      }
+      .svc-row.header-row { display: none; }
+      .packages-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Qwik<span>learn</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="studyhall.html">Study Hall</a></li>
+      <li><a href="mathcamp.html">Math Camp</a></li>
+      <li><a href="mailto:qwiklearntutoring@gmail.com" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">1-on-1 Virtual Tutoring</div>
+    <h1 class="section-title">Services &amp; Pricing</h1>
+    <p class="section-sub">All sessions are virtual. Book a single session or save with a package.</p>
+  </div>
+</div>
+
+<!-- SERVICES LIST -->
+<section class="section services-section">
+  <div class="section-inner">
+
+    <!-- Elementary -->
+    <div class="level-block">
+      <div class="level-header">
+        <span class="level-badge badge-green">Elementary</span>
+        <span class="level-title">Grades 1–5</span>
+      </div>
+      <div class="svc-table">
+        <div class="svc-row header-row">
+          <span>Subject</span>
+          <span>Duration</span>
+          <span>Price</span>
+          <span>Packages available</span>
+          <span></span>
+        </div>
+        <div class="svc-row">
+          <div>
+            <div class="svc-row-name">Math Grades 1–5</div>
+            <div class="svc-row-desc">1-on-1 virtual tutoring session</div>
+          </div>
+          <div class="svc-row-duration">1 hr+</div>
+          <div class="svc-price-col">$75<span style="font-size:1rem;color:var(--text-light)">/hr</span></div>
+          <div class="svc-package">5-session: $356 · 10-session: $712</div>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="svc-book-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Middle School -->
+    <div class="level-block">
+      <div class="level-header">
+        <span class="level-badge badge-teal">Middle School</span>
+        <span class="level-title">Grades 6–8</span>
+      </div>
+      <div class="svc-table">
+        <div class="svc-row header-row">
+          <span>Subject</span>
+          <span>Duration</span>
+          <span>Price</span>
+          <span>Packages available</span>
+          <span></span>
+        </div>
+        <div class="svc-row">
+          <div>
+            <div class="svc-row-name">Math Grades 6–8</div>
+            <div class="svc-row-desc">1-on-1 virtual tutoring session</div>
+          </div>
+          <div class="svc-row-duration">1 hr+</div>
+          <div class="svc-price-col">$85<span style="font-size:1rem;color:var(--text-light)">/hr</span></div>
+          <div class="svc-package">5-session: $403 · 10-session: $807</div>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="svc-book-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- High School -->
+    <div class="level-block">
+      <div class="level-header">
+        <span class="level-badge badge-orange">High School</span>
+        <span class="level-title">Algebra → Pre-Calculus</span>
+      </div>
+      <div class="svc-table">
+        <div class="svc-row header-row">
+          <span>Subject</span>
+          <span>Duration</span>
+          <span>Price</span>
+          <span>Packages available</span>
+          <span></span>
+        </div>
+        <div class="svc-row">
+          <div>
+            <div class="svc-row-name">Algebra 1</div>
+            <div class="svc-row-desc">1-on-1 virtual tutoring session</div>
+          </div>
+          <div class="svc-row-duration">1 hr+</div>
+          <div class="svc-price-col">$100<span style="font-size:1rem;color:var(--text-light)">/hr</span></div>
+          <div class="svc-package">5-session: $475 · 10-session: $950</div>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="svc-book-btn">Book Now</a>
+        </div>
+        <div class="svc-row">
+          <div>
+            <div class="svc-row-name">Algebra 2</div>
+            <div class="svc-row-desc">1-on-1 virtual tutoring session</div>
+          </div>
+          <div class="svc-row-duration">1 hr+</div>
+          <div class="svc-price-col">$100<span style="font-size:1rem;color:var(--text-light)">/hr</span></div>
+          <div class="svc-package">5-session: $475 · 10-session: $950</div>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="svc-book-btn">Book Now</a>
+        </div>
+        <div class="svc-row">
+          <div>
+            <div class="svc-row-name">Trigonometry</div>
+            <div class="svc-row-desc">1-on-1 virtual tutoring session</div>
+          </div>
+          <div class="svc-row-duration">1 hr+</div>
+          <div class="svc-price-col">$100<span style="font-size:1rem;color:var(--text-light)">/hr</span></div>
+          <div class="svc-package">5-session: $475 · 10-session: $950</div>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="svc-book-btn">Book Now</a>
+        </div>
+        <div class="svc-row">
+          <div>
+            <div class="svc-row-name">Pre-Calculus</div>
+            <div class="svc-row-desc">1-on-1 virtual tutoring session</div>
+          </div>
+          <div class="svc-row-duration">1 hr+</div>
+          <div class="svc-price-col">$100<span style="font-size:1rem;color:var(--text-light)">/hr</span></div>
+          <div class="svc-package">5-session: $475 · 10-session: $950</div>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="svc-book-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section packages-section">
+  <div class="section-inner">
+    <div class="section-label">Save with bundles</div>
+    <h2 class="section-title">Session Packages</h2>
+    <p class="section-sub">Commit to a package and lock in consistent progress — plus save vs. single sessions.</p>
+    <div class="packages-grid">
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div class="pkg-name">Single Session</div>
+          <div class="pkg-sessions">1 hour · Pay as you go</div>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-price">$75–$100</div>
+          <div class="pkg-per">per hour depending on level</div>
+          <ul class="pkg-features">
+            <li><span class="check">✓</span> 1-on-1 virtual session</li>
+            <li><span class="check">✓</span> Flexible scheduling</li>
+            <li><span class="check">✓</span> No commitment</li>
+          </ul>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-green" style="width:100%;text-align:center;display:block;">Book a Session</a>
+        </div>
+      </div>
+      <div class="pkg-card featured">
+        <div class="pkg-header">
+          <span class="pkg-featured-badge">Best Value</span>
+          <div class="pkg-name">5-Session Pack</div>
+          <div class="pkg-sessions">5 hours · ~5% off</div>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-price">$356–$475</div>
+          <div class="pkg-per">for 5 sessions (level dependent)</div>
+          <div class="pkg-savings">Save vs. individual sessions</div>
+          <ul class="pkg-features">
+            <li><span class="check">✓</span> 5 x 1-on-1 virtual sessions</li>
+            <li><span class="check">✓</span> Flexible scheduling</li>
+            <li><span class="check">✓</span> Consistent weekly progress</li>
+            <li><span class="check">✓</span> Progress tracking</li>
+          </ul>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary" style="width:100%;text-align:center;display:block;">Get 5-Pack</a>
+        </div>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div class="pkg-name">10-Session Pack</div>
+          <div class="pkg-sessions">10 hours · Best long-term value</div>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-price">$712–$950</div>
+          <div class="pkg-per">for 10 sessions (level dependent)</div>
+          <ul class="pkg-features">
+            <li><span class="check">✓</span> 10 x 1-on-1 virtual sessions</li>
+            <li><span class="check">✓</span> Flexible scheduling</li>
+            <li><span class="check">✓</span> Consistent weekly progress</li>
+            <li><span class="check">✓</span> Progress tracking</li>
+            <li><span class="check">✓</span> Maximum continuity</li>
+          </ul>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-dark" style="width:100%;text-align:center;display:block;">Get 10-Pack</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Qwik<span>learn</span></div>
+      <p class="footer-tagline">Expert Math Tutoring · Virtual · All Grades</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Ms. Steiner</a></li>
+        <li><a href="services.html">Services &amp; Pricing</a></li>
+        <li><a href="studyhall.html">Virtual Study Hall</a></li>
+        <li><a href="mathcamp.html">Math Camp 2026</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:qwiklearntutoring@gmail.com">qwiklearntutoring@gmail.com</a></li>
+        <li><a href="#">Sun–Thu: 8 am – 11 pm EST</a></li>
+        <li><a href="#">Friday: 8 am – 5 pm EST</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Qwiklearn. All rights reserved.</span>
+    <span>Built with ❤️ for students everywhere.</span>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  ham.addEventListener('click', () => nav.classList.toggle('open'));
+</script>
+</body>
+</html>
