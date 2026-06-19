@@ -110,54 +110,6 @@
       transition: 0.3s;
     }
 
-    /* ── DROPDOWN ── */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown .dropbtn {
-      cursor: pointer;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #0d2e1a;
-      min-width: 200px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-      border-radius: 8px;
-      padding: 8px 0;
-      border: 1px solid rgba(255,255,255,0.1);
-      z-index: 1001;
-    }
-
-    .dropdown-content li {
-      list-style: none;
-    }
-
-    .dropdown-content li a {
-      display: block;
-      padding: 10px 20px;
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: background 0.2s, color 0.2s;
-      border-bottom: none !important;
-    }
-
-    .dropdown-content li a:hover {
-      background: rgba(245,166,35,0.15);
-      color: #f5a623;
-      border-bottom: none !important;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
     @media (max-width: 820px) {
       .hamburger {
         display: flex;
@@ -189,28 +141,6 @@
       .nav-links li a.nav-cta {
         text-align: center;
         padding: 12px 24px;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: static;
-        box-shadow: none;
-        background: transparent;
-        padding-left: 16px;
-        border: none;
-      }
-
-      .dropdown.open .dropdown-content {
-        display: block;
-      }
-
-      .dropdown-content li a {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-      }
-
-      .dropdown-content li a:hover {
-        background: rgba(245,166,35,0.1);
       }
     }
 
@@ -334,14 +264,10 @@
     }
 
     /* ── HERO IMAGE ── */
-    .sh-hero-layout {
+    .sh-hero-image {
       max-width: 1100px;
       margin: 0 auto;
       padding: 40px 24px 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
     }
 
     .sh-hero-image img {
@@ -349,51 +275,6 @@
       border-radius: 16px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.5);
       display: block;
-    }
-
-    .sh-hero-info {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .sh-hero-info h2 {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: #1a2e1a;
-    }
-
-    .sh-hero-info p {
-      color: #5a6a5a;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    .sh-hero-info .detail-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px solid #f0f4f0;
-      font-size: 0.95rem;
-    }
-
-    .sh-hero-info .detail-row:last-child {
-      border-bottom: none;
-    }
-
-    .sh-hero-info .detail-label {
-      color: #6a7a6a;
-      font-weight: 600;
-    }
-
-    .sh-hero-info .detail-value {
-      color: #1a2e1a;
-      font-weight: 600;
-    }
-
-    .sh-hero-info .detail-value .orange {
-      color: #c05010;
     }
 
     /* ── SECTION COMMON ── */
@@ -620,11 +501,6 @@
     }
 
     @media (max-width: 900px) {
-      .sh-hero-layout {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
       .info-grid {
         grid-template-columns: 1fr;
       }
@@ -650,7 +526,7 @@
         padding: 40px 16px 24px;
       }
 
-      .sh-hero-layout {
+      .sh-hero-image {
         padding: 24px 16px 0;
       }
 
@@ -678,13 +554,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropbtn active">Study Hall</a>
-        <ul class="dropdown-content">
-          <li><a href="studyhallms.html" class="active">Middle School</a></li>
-          <li><a href="studyhallhs.html">High School</a></li>
-        </ul>
-      </li>
+      <li><a href="studyhall-middle.html" class="active">Study Hall</a></li>
       <li><a href="mathcamp.html">Math Camp</a></li>
       <li><a href="mailto:qwiklearntutoring@gmail.com" class="nav-cta">Book Appointment</a></li>
     </ul>
@@ -708,32 +578,9 @@
   </div>
 </div>
 
-<!-- HERO IMAGE + INFO SIDE BY SIDE -->
-<div class="sh-hero-layout">
-  <div class="sh-hero-image">
-    <img src="images/studyhallms.png" alt="Middle School Study Hall">
-  </div>
-  <div class="sh-hero-info">
-    <h2>Middle School Study Hall</h2>
-    <p>Weekly open-door Q&A sessions for middle school math — homework help, summer work, and general math questions.</p>
-    <div class="detail-row">
-      <span class="detail-label">Grades</span>
-      <span class="detail-value">Grades 6-8</span>
-    </div>
-    <div class="detail-row">
-      <span class="detail-label">When</span>
-      <span class="detail-value">Every Sunday, July &amp; August</span>
-    </div>
-    <div class="detail-row">
-      <span class="detail-label">Time</span>
-      <span class="detail-value"><span class="orange">12:00 pm – 2:00 pm EST</span></span>
-    </div>
-    <div class="detail-row">
-      <span class="detail-label">Spots</span>
-      <span class="detail-value" style="color:#c05010;font-weight:700;">Limited — sign up today</span>
-    </div>
-    <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary" style="margin-top:16px;text-align:center;">Sign Up Now</a>
-  </div>
+<!-- HERO IMAGE -->
+<div class="sh-hero-image">
+  <img src="images/studyhall-middle.jpg" alt="Middle School Study Hall">
 </div>
 
 <!-- INFO SECTION -->
@@ -749,6 +596,11 @@
         <p>Sessions run every Sunday throughout July and August. Pop in as often as you like during the session window.</p>
       </div>
       <div class="info-card">
+        <div class="icon">🆓</div>
+        <h3>Completely Free</h3>
+        <p>No appointment needed. No commitment. Just show up with your questions and get the help you need.</p>
+      </div>
+      <div class="info-card">
         <div class="icon">📚</div>
         <h3>What's Covered</h3>
         <p>Regular math homework, summer assignments, test prep, or any math question you're stuck on — we'll work through it together.</p>
@@ -757,11 +609,6 @@
         <div class="icon">💻</div>
         <h3>100% Virtual</h3>
         <p>Join from anywhere. All you need is an internet connection and your math questions.</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">🔢</div>
-        <h3>Limited Spots Available</h3>
-        <p>Spaces are limited to ensure quality attention for every student. Sign up today to secure your spot.</p>
       </div>
     </div>
   </div>
@@ -792,10 +639,6 @@
           <span class="detail-label">Grades</span>
           <span class="detail-value">Grades 6-8</span>
         </div>
-        <div class="detail-row">
-          <span class="detail-label">Spots</span>
-          <span class="detail-value" style="color:#c05010;font-weight:700;">Limited</span>
-        </div>
       </div>
       <div class="detail-card">
         <h3>📝 How to Join</h3>
@@ -825,7 +668,7 @@
   <div style="max-width:600px;margin:0 auto;">
     <div class="section-label" style="color:rgba(255,255,255,0.5);">Ready to join?</div>
     <h2 class="section-title">Sign Up for Study Hall</h2>
-    <p class="section-sub">Email us to get the virtual session link. Spots are limited — sign up today to secure your spot.</p>
+    <p class="section-sub">Email us to get the virtual session link. No cost, no commitment — just help when you need it.</p>
     <div class="cta-email">qwiklearntutoring@gmail.com</div>
     <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary" style="font-size:1.1rem;padding:14px 36px;">Email to Sign Up Today</a>
   </div>
@@ -844,8 +687,8 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Ms. Steiner</a></li>
         <li><a href="services.html">Services and Pricing</a></li>
-        <li><a href="studyhallms.html">Middle School Study Hall</a></li>
-        <li><a href="studyhallhs.html">High School Study Hall</a></li>
+        <li><a href="studyhall-middle.html">Middle School Study Hall</a></li>
+        <li><a href="studyhall-high.html">High School Study Hall</a></li>
         <li><a href="mathcamp.html">Math Camp 2026</a></li>
       </ul>
     </div>
@@ -868,18 +711,6 @@
   const ham = document.getElementById('hamburger');
   const nav = document.getElementById('navLinks');
   ham.addEventListener('click', () => nav.classList.toggle('open'));
-
-  // Handle dropdown on mobile
-  const dropdown = document.querySelector('.dropdown');
-  if (dropdown) {
-    const dropbtn = dropdown.querySelector('.dropbtn');
-    dropbtn.addEventListener('click', function(e) {
-      if (window.innerWidth <= 820) {
-        e.preventDefault();
-        dropdown.classList.toggle('open');
-      }
-    });
-  }
 </script>
 
 </body>
