@@ -321,7 +321,12 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
-      align-items: start;
+      align-items: stretch;
+    }
+
+    .sh-hero-image {
+      display: flex;
+      flex-direction: column;
     }
 
     .sh-hero-image img {
@@ -329,12 +334,15 @@
       border-radius: 16px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.5);
       display: block;
+      flex: 1;
     }
 
     .sh-hero-info {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px 0;
     }
 
     .sh-hero-info .info-top h2 {
@@ -349,7 +357,7 @@
       color: #5a6a5a;
       font-size: 1.05rem;
       line-height: 1.7;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .sh-hero-info .detail-row {
@@ -378,33 +386,12 @@
       color: #c05010;
     }
 
-    /* ── SIGN UP TILE ── */
-    .signup-tile {
-      background: linear-gradient(135deg, #0d2e1a 0%, #1a4a2a 100%);
-      border-radius: 16px;
-      padding: 32px;
-      text-align: center;
-      border: 3px solid #f5a623;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-      margin-top: 8px;
+    .sh-hero-info .info-bottom {
+      margin-top: auto;
+      padding-top: 20px;
     }
 
-    .signup-tile h3 {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-
-    .signup-tile p {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .signup-tile .btn {
+    .sh-hero-info .info-bottom .btn {
       width: 100%;
       text-align: center;
       display: block;
@@ -417,7 +404,7 @@
         gap: 32px;
       }
 
-      .signup-tile .btn {
+      .sh-hero-info .info-bottom .btn {
         width: auto;
         display: inline-block;
       }
@@ -442,14 +429,6 @@
 
       .sh-hero-info .detail-row {
         font-size: 0.9rem;
-      }
-
-      .signup-tile {
-        padding: 24px 20px;
-      }
-
-      .signup-tile h3 {
-        font-size: 1.2rem;
       }
     }
 
@@ -603,12 +582,8 @@
         <span class="detail-value"><span class="orange">2:00 pm – 4:00 pm EST</span></span>
       </div>
     </div>
-
-    <!-- SIGN UP TILE - Sits in the empty space next to the bottom of the image -->
-    <div class="signup-tile">
-      <h3>Ready to Join?</h3>
-      <p>Contact us today to register for High School Study Hall.</p>
-      <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">Email to Sign Up</a>
+    <div class="info-bottom">
+      <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">Contact to Sign Up</a>
     </div>
   </div>
 </div>
