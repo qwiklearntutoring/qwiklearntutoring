@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>High School Study Hall — Qwiklearn</title>
+  <title>Middle School Study Hall — Qwiklearn</title>
   <style>
     /* ── RESET & BASE ── */
     * {
@@ -389,15 +389,15 @@
     .signup-tile {
       background: linear-gradient(135deg, #0d2e1a 0%, #1a4a2a 100%);
       border-radius: 16px;
-      padding: 36px 32px;
+      padding: 40px 36px;
       text-align: center;
       border: 3px solid #f5a623;
       box-shadow: 0 8px 32px rgba(0,0,0,0.15);
       flex: 1;
+      min-height: 160px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 12px;
     }
 
     .signup-tile h3 {
@@ -405,32 +405,14 @@
       font-size: 1.8rem;
       font-weight: 900;
       color: #ffffff;
-      margin-bottom: 4px;
+      margin-bottom: 10px;
     }
 
     .signup-tile p {
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.75);
       font-size: 1.05rem;
       line-height: 1.6;
-      margin-bottom: 6px;
-    }
-
-    .signup-tile .subjects {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin: 8px 0 12px;
-    }
-
-    .signup-tile .subjects span {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.9);
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 4px 14px;
-      border-radius: 20px;
+      margin-bottom: 22px;
     }
 
     .signup-tile .btn {
@@ -439,7 +421,6 @@
       display: block;
       padding: 16px 32px;
       font-size: 1.05rem;
-      margin-top: 4px;
     }
 
     /* ── RESPONSIVE ── */
@@ -460,7 +441,8 @@
       }
 
       .signup-tile {
-        padding: 28px 24px;
+        min-height: auto;
+        padding: 32px 28px;
       }
     }
 
@@ -487,7 +469,7 @@
       }
 
       .signup-tile {
-        padding: 20px 16px;
+        padding: 24px 20px;
       }
 
       .signup-tile h3 {
@@ -496,11 +478,6 @@
 
       .signup-tile p {
         font-size: 0.9rem;
-      }
-
-      .signup-tile .subjects span {
-        font-size: 0.75rem;
-        padding: 3px 10px;
       }
 
       .signup-tile .btn {
@@ -612,8 +589,8 @@
       <li class="dropdown">
         <a href="#" class="dropbtn active">Study Hall</a>
         <ul class="dropdown-content">
-          <li><a href="studyhallms.html">Middle School</a></li>
-          <li><a href="studyhallhs.html" class="active">High School</a></li>
+          <li><a href="studyhallms.html" class="active">Middle School</a></li>
+          <li><a href="studyhallhs.html">High School</a></li>
         </ul>
       </li>
       <li><a href="mathcamp.html">Math Camp</a></li>
@@ -630,7 +607,7 @@
   <div class="sh-hero-inner">
     <div class="section-label">Summer 2026</div>
     <h1 class="sh-hero-title">QWIKLEARN<br>VIRTUAL<br><span class="orange">STUDY HALL</span></h1>
-    <p class="sh-hero-sub">Weekly high school math homework and summer work Q&A — open door, no appointment needed.</p>
+    <p class="sh-hero-sub">Weekly middle school math homework and summer work Q&A — open door, no appointment needed.</p>
     <div class="sh-hero-actions">
       <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">Contact to Sign Up</a>
     </div>
@@ -640,15 +617,15 @@
 <!-- HERO IMAGE + INFO SIDE BY SIDE -->
 <div class="sh-hero-layout">
   <div class="sh-hero-image">
-    <img src="images/studyhallhs.png" alt="High School Study Hall">
+    <img src="images/studyhallms.png" alt="Middle School Study Hall">
   </div>
   <div class="sh-hero-info">
     <div class="info-top">
-      <h2>Summer High School Study Hall</h2>
-      <p>Weekly open-door Q&A sessions for high school math — homework help, summer work, and general math questions.</p>
+      <h2>Middle School Study Hall</h2>
+      <p>Weekly open-door Q&A sessions for middle school math — homework help, summer work, and general math questions.</p>
       <div class="detail-row">
         <span class="detail-label">Grades</span>
-        <span class="detail-value">Grades 9-12</span>
+        <span class="detail-value">Grades 6-8</span>
       </div>
       <div class="detail-row">
         <span class="detail-label">When</span>
@@ -656,20 +633,14 @@
       </div>
       <div class="detail-row">
         <span class="detail-label">Time</span>
-        <span class="detail-value"><span class="orange">2:00 pm – 4:00 pm EST</span></span>
+        <span class="detail-value"><span class="orange">12:00 pm – 2:00 pm EST</span></span>
       </div>
     </div>
 
-    <!-- SIGN UP TILE - Filled with content -->
+    <!-- SIGN UP TILE - Taller to fill empty space -->
     <div class="signup-tile">
       <h3>Ready to Join?</h3>
-      <p>Contact us today to register for Summer High School Study Hall.</p>
-      <div class="subjects">
-        <span>Algebra 1</span>
-        <span>Algebra 2</span>
-        <span>Trigonometry</span>
-        <span>Pre-Calculus</span>
-      </div>
+      <p>Contact us today to register for Middle School Study Hall.</p>
       <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">Email to Sign Up</a>
     </div>
   </div>
