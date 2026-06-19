@@ -351,21 +351,19 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 28px;
       margin-top: 40px;
     }
 
     .service-tile {
       background: #ffffff;
       border-radius: 12px;
-      padding: 28px 24px;
+      padding: 32px 28px;
       border: 1px solid #e0e8e0;
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
       transition: transform 0.2s, box-shadow 0.2s;
       display: flex;
       flex-direction: column;
-      min-height: 120px;
-      justify-content: center;
     }
 
     .service-tile:hover {
@@ -382,7 +380,7 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #ffffff;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       width: fit-content;
     }
 
@@ -400,16 +398,49 @@
 
     .service-tile h3 {
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: 900;
       color: #1a2e1a;
-      margin-bottom: 2px;
+      margin-bottom: 6px;
     }
 
     .service-tile .grade-range {
       color: #6a7a6a;
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .service-tile .subjects-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+      flex: 1;
+    }
+
+    .service-tile .subjects-list li {
+      padding: 6px 0;
+      font-size: 0.95rem;
+      color: #3d4d3d;
+      border-bottom: 1px solid #f0f4f0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-tile .subjects-list li:last-child {
+      border-bottom: none;
+    }
+
+    .service-tile .subjects-list .bullet {
+      color: #c05010;
+      font-weight: 700;
+    }
+
+    .service-tile .btn {
+      text-align: center;
+      display: block;
+      width: 100%;
     }
 
     /* ── PACKAGES SECTION HEADER WITH BUTTON ── */
@@ -428,16 +459,6 @@
     .packages-header-row .btn {
       flex-shrink: 0;
       margin-bottom: 4px;
-      font-size: 1.2rem;
-      padding: 18px 48px;
-    }
-
-    .packages-header-row .btn .sub-text {
-      display: block;
-      font-size: 0.7rem;
-      font-weight: 400;
-      opacity: 0.8;
-      margin-top: 2px;
     }
 
     /* ── PACKAGES SECTION ── */
@@ -463,12 +484,8 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.08);
     }
 
-    .pkg-card.featured-5 {
+    .pkg-card.featured {
       border-color: #f5a623;
-    }
-
-    .pkg-card.featured-10 {
-      border-color: #e0e8e0;
     }
 
     .pkg-header {
@@ -478,12 +495,8 @@
       position: relative;
     }
 
-    .pkg-card.featured-5 .pkg-header {
+    .pkg-card.featured .pkg-header {
       background: linear-gradient(135deg, #c05010 0%, #f5a623 100%);
-    }
-
-    .pkg-card.featured-10 .pkg-header {
-      background: #f5f7f5;
     }
 
     .pkg-featured-badge {
@@ -500,11 +513,6 @@
       border-radius: 20px;
     }
 
-    .pkg-card.featured-10 .pkg-featured-badge {
-      background: #c05010;
-      color: #ffffff;
-    }
-
     .pkg-name {
       font-family: Georgia, 'Times New Roman', serif;
       font-size: 1.4rem;
@@ -513,12 +521,8 @@
       color: #1a2e1a;
     }
 
-    .pkg-card.featured-5 .pkg-name {
+    .pkg-card.featured .pkg-name {
       color: #ffffff;
-    }
-
-    .pkg-card.featured-10 .pkg-name {
-      color: #1a2e1a;
     }
 
     .pkg-sessions {
@@ -526,12 +530,8 @@
       font-size: 0.9rem;
     }
 
-    .pkg-card.featured-5 .pkg-sessions {
+    .pkg-card.featured .pkg-sessions {
       color: rgba(255,255,255,0.8);
-    }
-
-    .pkg-card.featured-10 .pkg-sessions {
-      color: #6a7a6a;
     }
 
     .pkg-body {
@@ -655,13 +655,6 @@
         gap: 16px;
       }
 
-      .packages-header-row .btn {
-        font-size: 1rem;
-        padding: 14px 32px;
-        width: 100%;
-        text-align: center;
-      }
-
       .packages-grid {
         grid-template-columns: 1fr;
         max-width: 500px;
@@ -690,12 +683,11 @@
       }
 
       .service-tile {
-        padding: 20px 16px;
-        min-height: 80px;
+        padding: 24px 20px;
       }
 
       .service-tile h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
 
       .pkg-header {
@@ -704,11 +696,6 @@
 
       .pkg-body {
         padding: 20px;
-      }
-
-      .packages-header-row .btn {
-        font-size: 0.9rem;
-        padding: 12px 24px;
       }
     }
   </style>
@@ -756,43 +743,32 @@
     <p class="section-sub">1-on-1 virtual tutoring tailored to each student's needs.</p>
     <div class="services-grid">
 
-      <!-- Row 1: Elementary + Middle School -->
+      <!-- Elementary -->
       <div class="service-tile">
         <span class="level-badge badge-green">Elementary</span>
         <h3>Math Grades 1-5</h3>
         <div class="grade-range">Building strong foundations</div>
+        <ul class="subjects-list">
+          <li><span class="bullet">•</span> Number sense and operations</li>
+          <li><span class="bullet">•</span> Fractions and decimals</li>
+          <li><span class="bullet">•</span> Basic algebra concepts</li>
+          <li><span class="bullet">•</span> Problem-solving strategies</li>
+        </ul>
+        <a href="bookappointment.html" class="btn btn-primary">Book Appointment</a>
       </div>
 
+      <!-- Middle School -->
       <div class="service-tile">
         <span class="level-badge badge-mid">Middle School</span>
         <h3>Math Grades 6-8</h3>
         <div class="grade-range">Bridging to high school</div>
-      </div>
-
-      <!-- Row 2: Algebra 1 + Algebra 2 -->
-      <div class="service-tile">
-        <span class="level-badge badge-dark">Algebra 1</span>
-        <h3>Algebra 1</h3>
-        <div class="grade-range">Foundations of algebra</div>
-      </div>
-
-      <div class="service-tile">
-        <span class="level-badge badge-dark">Algebra 2</span>
-        <h3>Algebra 2</h3>
-        <div class="grade-range">Advanced algebraic concepts</div>
-      </div>
-
-      <!-- Row 3: Trigonometry + Pre-Calculus -->
-      <div class="service-tile">
-        <span class="level-badge badge-dark">Trigonometry</span>
-        <h3>Trigonometry</h3>
-        <div class="grade-range">Angles, functions, and identities</div>
-      </div>
-
-      <div class="service-tile">
-        <span class="level-badge badge-dark">Pre-Calculus</span>
-        <h3>Pre-Calculus</h3>
-        <div class="grade-range">Preparation for calculus</div>
+        <ul class="subjects-list">
+          <li><span class="bullet">•</span> Ratios and proportions</li>
+          <li><span class="bullet">•</span> Geometry and measurement</li>
+          <li><span class="bullet">•</span> Pre-algebra foundations</li>
+          <li><span class="bullet">•</span> Data analysis and statistics</li>
+        </ul>
+        <a href="bookappointment.html" class="btn btn-primary">Book Appointment</a>
       </div>
 
     </div>
@@ -808,10 +784,7 @@
         <h2 class="section-title">Session Packages</h2>
         <p class="section-sub">Book multiple sessions at once and save. Perfect for students who want consistent weekly progress.</p>
       </div>
-      <a href="bookappointment.html" class="btn btn-primary">
-        Book Appointment
-        <span class="sub-text">Get signed up today!</span>
-      </a>
+      <a href="bookappointment.html" class="btn btn-primary" style="font-size:1.1rem;padding:14px 40px;">Book Appointment</a>
     </div>
     <div class="packages-grid">
 
@@ -831,7 +804,7 @@
       </div>
 
       <!-- 5-Session Pack -->
-      <div class="pkg-card featured-5">
+      <div class="pkg-card featured">
         <div class="pkg-header">
           <span class="pkg-featured-badge">Save 5%</span>
           <div class="pkg-name">5-Session Pack</div>
@@ -848,7 +821,7 @@
       </div>
 
       <!-- 10-Session Pack -->
-      <div class="pkg-card featured-10">
+      <div class="pkg-card featured">
         <div class="pkg-header">
           <span class="pkg-featured-badge">Save 10%</span>
           <div class="pkg-name">10-Session Pack</div>
