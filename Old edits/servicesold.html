@@ -347,41 +347,30 @@
       background: #f5f7f5;
     }
 
-    /* ── SERVICES TILES ── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-      margin-top: 40px;
+    /* ── SERVICES TABLE ── */
+    .level-block {
+      margin-bottom: 56px;
     }
 
-    .service-tile {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 32px 28px;
-      border: 1px solid #e0e8e0;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      transition: transform 0.2s, box-shadow 0.2s;
+    .level-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .level-header {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
     }
 
-    .service-tile:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    }
-
-    .service-tile .level-badge {
-      display: inline-block;
-      padding: 4px 14px;
+    .level-badge {
+      padding: 5px 14px;
       border-radius: 20px;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       color: #ffffff;
-      margin-bottom: 12px;
-      width: fit-content;
     }
 
     .badge-green {
@@ -396,72 +385,81 @@
       background: linear-gradient(135deg, #0d2e1a 0%, #0a1f0a 100%);
     }
 
-    .service-tile h3 {
+    .level-title {
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.6rem;
+      font-size: 1.9rem;
       font-weight: 900;
-      color: #1a2e1a;
-      margin-bottom: 6px;
     }
 
-    .service-tile .grade-range {
-      color: #6a7a6a;
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 12px;
+    .svc-table {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e0e8e0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
     }
 
-    .service-tile .subjects-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 20px 0;
-      flex: 1;
-    }
-
-    .service-tile .subjects-list li {
-      padding: 6px 0;
-      font-size: 0.95rem;
-      color: #3d4d3d;
-      border-bottom: 1px solid #f0f4f0;
-      display: flex;
+    .svc-row {
+      display: grid;
+      grid-template-columns: 2.5fr 0.8fr 1.2fr;
       align-items: center;
-      gap: 8px;
+      padding: 0 28px;
+      border-bottom: 1px solid #e0e8e0;
+      min-height: 64px;
+      gap: 16px;
+      transition: background 0.15s;
     }
 
-    .service-tile .subjects-list li:last-child {
+    .svc-row:last-child {
       border-bottom: none;
     }
 
-    .service-tile .subjects-list .bullet {
-      color: #c05010;
+    .svc-row.header-row {
+      background: #0d2e1a;
+      color: #ffffff;
+      font-size: 0.72rem;
       font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      min-height: 44px;
     }
 
-    .service-tile .btn {
+    .svc-row:not(.header-row):hover {
+      background: #f5f7f5;
+    }
+
+    .svc-row-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #1a2e1a;
+    }
+
+    .svc-row-duration {
+      color: #6a7a6a;
+      font-size: 0.9rem;
+    }
+
+    .svc-book-btn {
+      background: linear-gradient(135deg, #c05010 0%, #f5a623 100%);
+      color: #ffffff;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-block;
       text-align: center;
-      display: block;
-      width: 100%;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
     }
 
-    /* ── PACKAGES SECTION HEADER WITH BUTTON ── */
-    .packages-header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-
-    .packages-header-row .text-content {
-      flex: 1;
-    }
-
-    .packages-header-row .btn {
-      flex-shrink: 0;
-      margin-bottom: 4px;
+    .svc-book-btn:hover {
+      background: linear-gradient(135deg, #a0400a 0%, #e09515 100%);
+      transform: translateY(-1px);
     }
 
     /* ── PACKAGES SECTION ── */
+    .packages-section {}
+
     .packages-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -541,9 +539,28 @@
       flex-direction: column;
     }
 
+    .pkg-discount {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #1a2e1a;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pkg-card.featured .pkg-discount {
+      color: #c05010;
+    }
+
+    .pkg-per {
+      font-size: 0.85rem;
+      color: #8a9a8a;
+      margin-bottom: 16px;
+    }
+
     .pkg-features {
       list-style: none;
-      margin: 0;
+      margin-bottom: 24px;
       flex: 1;
     }
 
@@ -564,6 +581,12 @@
     .pkg-features .check {
       color: #2a6b2a;
       font-weight: 700;
+    }
+
+    .pkg-body .btn {
+      width: 100%;
+      text-align: center;
+      display: block;
     }
 
     /* ── FOOTER ── */
@@ -643,16 +666,15 @@
     }
 
     @media (max-width: 900px) {
-      .services-grid {
+      .svc-row {
         grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 40px auto 0;
+        padding: 16px 20px;
+        gap: 6px;
+        min-height: auto;
       }
 
-      .packages-header-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
+      .svc-row.header-row {
+        display: none;
       }
 
       .packages-grid {
@@ -682,12 +704,8 @@
         padding: 48px 16px;
       }
 
-      .service-tile {
-        padding: 24px 20px;
-      }
-
-      .service-tile h3 {
-        font-size: 1.3rem;
+      .level-title {
+        font-size: 1.4rem;
       }
 
       .pkg-header {
@@ -718,7 +736,7 @@
         </ul>
       </li>
       <li><a href="mathcamp.html">Math Camp</a></li>
-      <li><a href="bookappointment.html" class="nav-cta">Book Appointment</a></li>
+      <li><a href="mailto:qwiklearntutoring@gmail.com" class="nav-cta">Book Appointment</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -735,60 +753,107 @@
   </div>
 </div>
 
-<!-- SERVICES TILES -->
+<!-- SERVICES LIST -->
 <section class="section services-section">
   <div class="section-inner">
-    <div class="section-label">What We Offer</div>
-    <h2 class="section-title">Tutoring for Every Level</h2>
-    <p class="section-sub">1-on-1 virtual tutoring tailored to each student's needs.</p>
-    <div class="services-grid">
 
-      <!-- Elementary -->
-      <div class="service-tile">
+    <!-- Elementary -->
+    <div class="level-block">
+      <div class="level-header">
         <span class="level-badge badge-green">Elementary</span>
-        <h3>Math Grades 1-5</h3>
-        <div class="grade-range">Building strong foundations</div>
-        <ul class="subjects-list">
-          <li><span class="bullet">•</span> Number sense and operations</li>
-          <li><span class="bullet">•</span> Fractions and decimals</li>
-          <li><span class="bullet">•</span> Basic algebra concepts</li>
-          <li><span class="bullet">•</span> Problem-solving strategies</li>
-        </ul>
-        <a href="bookappointment.html" class="btn btn-primary">Book Appointment</a>
+        <span class="level-title">Grades 1-5</span>
       </div>
-
-      <!-- Middle School -->
-      <div class="service-tile">
-        <span class="level-badge badge-mid">Middle School</span>
-        <h3>Math Grades 6-8</h3>
-        <div class="grade-range">Bridging to high school</div>
-        <ul class="subjects-list">
-          <li><span class="bullet">•</span> Ratios and proportions</li>
-          <li><span class="bullet">•</span> Geometry and measurement</li>
-          <li><span class="bullet">•</span> Pre-algebra foundations</li>
-          <li><span class="bullet">•</span> Data analysis and statistics</li>
-        </ul>
-        <a href="bookappointment.html" class="btn btn-primary">Book Appointment</a>
+      <div class="svc-table">
+        <div class="svc-row header-row">
+          <span>Subject</span>
+          <span>Duration</span>
+          <span></span>
+        </div>
+        <div class="svc-row">
+          <div>
+            <div class="svc-row-name">Math Grades 1-5</div>
+          </div>
+          <div class="svc-row-duration">1 hr+</div>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="svc-book-btn">Book Now</a>
+        </div>
       </div>
-
     </div>
+
+    <!-- Middle School -->
+    <div class="level-block">
+      <div class="level-header">
+        <span class="level-badge badge-mid">Middle School</span>
+        <span class="level-title">Grades 6-8</span>
+      </div>
+      <div class="svc-table">
+        <div class="svc-row header-row">
+          <span>Subject</span>
+          <span>Duration</span>
+          <span></span>
+        </div>
+        <div class="svc-row">
+          <div>
+            <div class="svc-row-name">Math Grades 6-8</div>
+          </div>
+          <div class="svc-row-duration">1 hr+</div>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="svc-book-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- High School -->
+    <div class="level-block">
+      <div class="level-header">
+        <span class="level-badge badge-dark">High School</span>
+        <span class="level-title">Algebra 1, Algebra 2, Trig, Pre-Calc</span>
+      </div>
+      <div class="svc-table">
+        <div class="svc-row header-row">
+          <span>Subject</span>
+          <span>Duration</span>
+          <span></span>
+        </div>
+        <div class="svc-row">
+          <div>
+            <div class="svc-row-name">Algebra 1</div>
+          </div>
+          <div class="svc-row-duration">1 hr+</div>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="svc-book-btn">Book Now</a>
+        </div>
+        <div class="svc-row">
+          <div>
+            <div class="svc-row-name">Algebra 2</div>
+          </div>
+          <div class="svc-row-duration">1 hr+</div>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="svc-book-btn">Book Now</a>
+        </div>
+        <div class="svc-row">
+          <div>
+            <div class="svc-row-name">Trigonometry</div>
+          </div>
+          <div class="svc-row-duration">1 hr+</div>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="svc-book-btn">Book Now</a>
+        </div>
+        <div class="svc-row">
+          <div>
+            <div class="svc-row-name">Pre-Calculus</div>
+          </div>
+          <div class="svc-row-duration">1 hr+</div>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="svc-book-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- PACKAGES SECTION -->
+<!-- PACKAGES -->
 <section class="section packages-section">
   <div class="section-inner">
-    <div class="packages-header-row">
-      <div class="text-content">
-        <div class="section-label">Save with bundles</div>
-        <h2 class="section-title">Session Packages</h2>
-        <p class="section-sub">Book multiple sessions at once and save. Perfect for students who want consistent weekly progress.</p>
-      </div>
-      <a href="bookappointment.html" class="btn btn-primary" style="font-size:1.1rem;padding:14px 40px;">Book Appointment</a>
-    </div>
+    <div class="section-label">Save with bundles</div>
+    <h2 class="section-title">Session Packages</h2>
+    <p class="section-sub">Book multiple sessions at once and save. Perfect for students who want consistent weekly progress.</p>
     <div class="packages-grid">
-
-      <!-- Single Session -->
       <div class="pkg-card">
         <div class="pkg-header">
           <div class="pkg-name">Single Session</div>
@@ -800,10 +865,9 @@
             <li><span class="check">✓</span> Flexible scheduling</li>
             <li><span class="check">✓</span> No commitment</li>
           </ul>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-green">Book a Session</a>
         </div>
       </div>
-
-      <!-- 5-Session Pack -->
       <div class="pkg-card featured">
         <div class="pkg-header">
           <span class="pkg-featured-badge">Save 5%</span>
@@ -817,13 +881,11 @@
             <li><span class="check">✓</span> Consistent weekly progress</li>
             <li><span class="check">✓</span> 5% discount</li>
           </ul>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">Get 5-Pack</a>
         </div>
       </div>
-
-      <!-- 10-Session Pack -->
-      <div class="pkg-card featured">
+      <div class="pkg-card">
         <div class="pkg-header">
-          <span class="pkg-featured-badge">Save 10%</span>
           <div class="pkg-name">10-Session Pack</div>
           <div class="pkg-sessions">10 hours of tutoring</div>
         </div>
@@ -834,9 +896,9 @@
             <li><span class="check">✓</span> Consistent weekly progress</li>
             <li><span class="check">✓</span> 10% discount</li>
           </ul>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-green">Get 10-Pack</a>
         </div>
       </div>
-
     </div>
   </div>
 </section>
