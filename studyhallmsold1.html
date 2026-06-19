@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>High School Study Hall — Qwiklearn</title>
+  <title>Middle School Study Hall — Qwiklearn</title>
   <style>
     /* ── RESET & BASE ── */
     * {
@@ -251,6 +251,18 @@
       background: rgba(245,166,35,0.1);
     }
 
+    .btn-green {
+      background: #0d2e1a;
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      border: none;
+    }
+
+    .btn-green:hover {
+      background: #1a4a2a;
+      color: #ffffff;
+    }
+
     /* ── HERO ── */
     .sh-hero {
       background: linear-gradient(135deg, #0a1f0a 0%, #0d2e1a 55%, #1a4a2a 100%);
@@ -306,6 +318,14 @@
       margin-right: auto;
     }
 
+    .sh-hero-email {
+      color: #f5a623;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 32px;
+      display: block;
+    }
+
     .sh-hero-actions {
       display: flex;
       gap: 14px;
@@ -313,7 +333,7 @@
       flex-wrap: wrap;
     }
 
-    /* ── HERO LAYOUT WITH IMAGE ── */
+    /* ── HERO IMAGE ── */
     .sh-hero-layout {
       max-width: 1100px;
       margin: 0 auto;
@@ -321,7 +341,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
-      align-items: start;
+      align-items: center;
     }
 
     .sh-hero-image img {
@@ -335,7 +355,6 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
-      padding-top: 8px;
     }
 
     .sh-hero-info h2 {
@@ -408,6 +427,95 @@
       font-size: 1.05rem;
       color: #5a6a5a;
       max-width: 600px;
+    }
+
+    /* ── INFO CARDS ── */
+    .info-section {
+      background: #f5f7f5;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid #e0e8e0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .info-card .icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .info-card h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 8px;
+    }
+
+    .info-card p {
+      color: #5a6a5a;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ── DETAILS SECTION ── */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .detail-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid #e0e8e0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .detail-card h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 16px;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f4f0;
+      font-size: 0.95rem;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-label {
+      color: #6a7a6a;
+      font-weight: 600;
+    }
+
+    .detail-value {
+      color: #1a2e1a;
+      font-weight: 600;
+    }
+
+    .detail-value .orange {
+      color: #c05010;
     }
 
     /* ── CTA SECTION ── */
@@ -517,6 +625,14 @@
         gap: 32px;
       }
 
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
       .footer-inner {
         grid-template-columns: 1fr;
         gap: 32px;
@@ -541,6 +657,14 @@
       .section {
         padding: 48px 16px;
       }
+
+      .info-card {
+        padding: 24px;
+      }
+
+      .detail-card {
+        padding: 24px;
+      }
     }
   </style>
 </head>
@@ -557,8 +681,8 @@
       <li class="dropdown">
         <a href="#" class="dropbtn active">Study Hall</a>
         <ul class="dropdown-content">
-          <li><a href="studyhallms.html">Middle School</a></li>
-          <li><a href="studyhallhs.html" class="active">High School</a></li>
+          <li><a href="studyhallms.html" class="active">Middle School</a></li>
+          <li><a href="studyhallhs.html">High School</a></li>
         </ul>
       </li>
       <li><a href="mathcamp.html">Math Camp</a></li>
@@ -573,26 +697,28 @@
 <!-- HERO -->
 <div class="sh-hero">
   <div class="sh-hero-inner">
-    <div class="section-label">Summer 2026</div>
+    <div class="section-label">Weekly Summer Sessions</div>
     <h1 class="sh-hero-title">QWIKLEARN<br>VIRTUAL<br><span class="orange">STUDY HALL</span></h1>
-    <p class="sh-hero-sub">Weekly high school math homework and summer work Q&A — open door, no appointment needed.</p>
+    <p class="sh-hero-sub">Weekly middle school math homework and summer work Q&A — open door, no appointment needed.</p>
+    <a href="mailto:qwiklearntutoring@gmail.com" class="sh-hero-email">qwiklearntutoring@gmail.com to sign up</a>
     <div class="sh-hero-actions">
-      <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">Contact to Sign Up</a>
+      <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">Sign Up Now</a>
+      <a href="#details" class="btn btn-outline">See Session Details</a>
     </div>
   </div>
 </div>
 
-<!-- HERO IMAGE + INFO -->
+<!-- HERO IMAGE + INFO SIDE BY SIDE -->
 <div class="sh-hero-layout">
   <div class="sh-hero-image">
-    <img src="images/studyhallhs.png" alt="High School Study Hall">
+    <img src="images/studyhallms.png" alt="Middle School Study Hall">
   </div>
   <div class="sh-hero-info">
-    <h2>High School Study Hall</h2>
-    <p>Weekly open-door Q&A sessions for high school math — homework help, summer work, and general math questions.</p>
+    <h2>Middle School Study Hall</h2>
+    <p>Weekly open-door Q&A sessions for middle school math — homework help, summer work, and general math questions.</p>
     <div class="detail-row">
       <span class="detail-label">Grades</span>
-      <span class="detail-value">Grades 9-12</span>
+      <span class="detail-value">Grades 6-8</span>
     </div>
     <div class="detail-row">
       <span class="detail-label">When</span>
@@ -600,19 +726,108 @@
     </div>
     <div class="detail-row">
       <span class="detail-label">Time</span>
-      <span class="detail-value"><span class="orange">2:00 pm – 4:00 pm EST</span></span>
+      <span class="detail-value"><span class="orange">12:00 pm – 2:00 pm EST</span></span>
     </div>
+    <div class="detail-row">
+      <span class="detail-label">Spots</span>
+      <span class="detail-value" style="color:#c05010;font-weight:700;">Limited — sign up today</span>
+    </div>
+    <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary" style="margin-top:16px;text-align:center;">Sign Up Now</a>
   </div>
 </div>
+
+<!-- INFO SECTION -->
+<section class="section info-section">
+  <div class="section-inner">
+    <div class="section-label">Middle School</div>
+    <h2 class="section-title">Grades 6-8 Study Hall</h2>
+    <p class="section-sub">Weekly open-door Q&A sessions for middle school math — homework help, summer work, and general math questions.</p>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="icon">📅</div>
+        <h3>Weekly Schedule</h3>
+        <p>Sessions run every Sunday throughout July and August. Pop in as often as you like during the session window.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">📚</div>
+        <h3>What's Covered</h3>
+        <p>Regular math homework, summer assignments, test prep, or any math question you're stuck on — we'll work through it together.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">💻</div>
+        <h3>100% Virtual</h3>
+        <p>Join from anywhere. All you need is an internet connection and your math questions.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🔢</div>
+        <h3>Limited Spots Available</h3>
+        <p>Spaces are limited to ensure quality attention for every student. Sign up today to secure your spot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS SECTION -->
+<section class="section" id="details">
+  <div class="section-inner">
+    <div class="section-label">Session Details</div>
+    <h2 class="section-title">When and How to Join</h2>
+    <p class="section-sub">Get the link by email and drop in during your session time.</p>
+    <div class="details-grid">
+      <div class="detail-card">
+        <h3>📋 Session Schedule</h3>
+        <div class="detail-row">
+          <span class="detail-label">When</span>
+          <span class="detail-value">Every Sunday, July &amp; August</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Time</span>
+          <span class="detail-value"><span class="orange">12:00 pm – 2:00 pm EST</span></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Format</span>
+          <span class="detail-value">Open-door Q&A</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Grades</span>
+          <span class="detail-value">Grades 6-8</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Spots</span>
+          <span class="detail-value" style="color:#c05010;font-weight:700;">Limited</span>
+        </div>
+      </div>
+      <div class="detail-card">
+        <h3>📝 How to Join</h3>
+        <div class="detail-row">
+          <span class="detail-label">Step 1</span>
+          <span class="detail-value">Email to get the link</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Step 2</span>
+          <span class="detail-value">Join on any Sunday</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Step 3</span>
+          <span class="detail-value">Ask your questions</span>
+        </div>
+        <div class="detail-row" style="border-bottom:none;padding-top:12px;">
+          <span class="detail-label">Contact</span>
+          <span class="detail-value" style="color:#f5a623;">qwiklearntutoring@gmail.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CTA SECTION -->
 <div class="cta-section">
   <div style="max-width:600px;margin:0 auto;">
     <div class="section-label" style="color:rgba(255,255,255,0.5);">Ready to join?</div>
     <h2 class="section-title">Sign Up for Study Hall</h2>
-    <p class="section-sub">Contact us today to register for High School Study Hall.</p>
+    <p class="section-sub">Email us to get the virtual session link. Spots are limited — sign up today to secure your spot.</p>
     <div class="cta-email">qwiklearntutoring@gmail.com</div>
-    <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary" style="font-size:1.1rem;padding:14px 36px;">Email to Sign Up</a>
+    <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary" style="font-size:1.1rem;padding:14px 36px;">Email to Sign Up Today</a>
   </div>
 </div>
 
@@ -654,6 +869,7 @@
   const nav = document.getElementById('navLinks');
   ham.addEventListener('click', () => nav.classList.toggle('open'));
 
+  // Handle dropdown on mobile
   const dropdown = document.querySelector('.dropdown');
   if (dropdown) {
     const dropbtn = dropdown.querySelector('.dropbtn');
