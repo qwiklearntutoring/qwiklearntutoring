@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Math Camp 2026 — Qwiklearn</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── CAMP HERO ── */
+    .camp-hero {
+      background: linear-gradient(160deg, #0d2010 0%, var(--navy) 40%, #1a0a00 100%);
+      padding: 0;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .camp-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 30% 60%, rgba(45,106,45,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 70% 40%, rgba(232,108,26,0.1) 0%, transparent 60%);
+    }
+    .camp-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+    .camp-hero-content {}
+    .camp-year-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      padding: 6px 16px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .camp-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 24px;
+    }
+    .camp-title .orange { color: var(--orange); }
+    .camp-title .teal   { color: var(--teal); }
+    .camp-subtitle {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .camp-meta-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .meta-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 30px;
+    }
+    .camp-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .camp-hero-visual {}
+    .camp-img-box {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+      background: linear-gradient(135deg, #1a3010, #2a1800);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .camp-img-box img { width: 100%; height: 100%; object-fit: cover; }
+    .camp-img-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      padding: 24px;
+    }
+    .camp-img-placeholder span { color: rgba(255,255,255,0.3); font-size: 0.85rem; font-weight: 700; line-height: 1.5; }
+
+    /* ── TIERS ── */
+    .tiers-section { background: var(--off-white); }
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .tier-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 2px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .tier-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .tier-header {
+      padding: 32px 32px 24px;
+    }
+    .tier-header.juniors { background: linear-gradient(135deg, #1a4a06 0%, #2a8010 100%); }
+    .tier-header.seniors { background: linear-gradient(135deg, #0a3a4a 0%, #0a6a7a 100%); }
+    .tier-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+    .juniors .tier-badge { background: rgba(255,255,255,0.2); color: var(--white); }
+    .seniors .tier-badge { background: rgba(255,255,255,0.2); color: var(--white); }
+    .tier-name {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .tier-grades { color: rgba(255,255,255,0.7); font-size: 0.9rem; font-weight: 600; }
+
+    .tier-body { padding: 28px 32px; }
+    .tier-desc {
+      color: var(--text-mid);
+      font-size: 0.97rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .tier-schedule {
+      background: var(--off-white);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+    .tier-schedule-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .tier-schedule-row:last-child { margin-bottom: 0; }
+    .sch-icon { font-size: 1rem; }
+    .tier-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .tier-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.93rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .check { color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+    /* ── HOW TO JOIN ── */
+    .join-section {
+      background: var(--green-dark);
+      padding: 72px 24px;
+      text-align: center;
+    }
+    .join-section .section-title { color: var(--white); }
+    .join-section .section-sub   { color: rgba(255,255,255,0.65); margin: 0 auto 32px; }
+    .join-email {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--orange);
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .camp-hero-inner { grid-template-columns: 1fr; }
+      .camp-hero-visual { display: none; }
+      .tiers-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Qwik<span>learn</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="studyhall.html">Study Hall</a></li>
+      <li><a href="mathcamp.html" class="active">Math Camp</a></li>
+      <li><a href="mailto:qwiklearntutoring@gmail.com" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="camp-hero">
+  <div class="camp-hero-inner">
+    <div class="camp-hero-content">
+      <div class="camp-year-badge">Summer 2026</div>
+      <h1 class="camp-title">
+        QWIKLEARN<br>
+        VIRTUAL<br>
+        <span class="orange">MATH</span><br>
+        <span class="teal">CAMP</span>
+      </h1>
+      <p class="camp-subtitle">
+        A fun summer filled with number &amp; logic puzzles, next-grade readiness, and math games galore — all virtual, all Sunday mornings.
+      </p>
+      <div class="camp-meta-chips">
+        <span class="meta-chip">📅 July – August</span>
+        <span class="meta-chip">📅 Sundays</span>
+        <span class="meta-chip">👦 Grades 1st–5th</span>
+        <span class="meta-chip">💻 100% Virtual</span>
+      </div>
+      <div class="camp-hero-actions">
+        <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary">Sign Up Now</a>
+        <a href="#tiers" class="btn btn-outline">See Sessions</a>
+      </div>
+    </div>
+    <div class="camp-hero-visual">
+      <div class="camp-img-box">
+        <!-- Replace with: <img src="images/mathcamp-hero.jpg" alt="Math Camp 2026"> -->
+        <div class="camp-img-placeholder">
+          <span>📸 Replace with your<br>Math Camp hero image<br><code style="font-size:0.7rem;color:rgba(255,255,255,0.25)">images/mathcamp-hero.jpg</code></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIERS -->
+<section class="section tiers-section" id="tiers">
+  <div class="section-inner">
+    <div class="section-label">Choose Your Session</div>
+    <h2 class="section-title">Two tracks, same great summer</h2>
+    <p class="section-sub">Sessions are split by grade to ensure every student gets age-appropriate challenges and pacing.</p>
+    <div class="tiers-grid">
+
+      <!-- JUNIORS -->
+      <div class="tier-card">
+        <div class="tier-header juniors">
+          <div class="tier-badge">Track 1</div>
+          <div class="tier-name">JUNIORS</div>
+          <div class="tier-grades">Grades 1st–3rd · Entering students</div>
+        </div>
+        <div class="tier-body">
+          <p class="tier-desc">
+            A fun, low-pressure introduction to mathematical thinking — number puzzles, pattern recognition, and hands-on logic games that build the foundation for everything to come.
+          </p>
+          <div class="tier-schedule">
+            <div class="tier-schedule-row"><span class="sch-icon">📅</span><span>July – August, every Sunday</span></div>
+            <div class="tier-schedule-row"><span class="sch-icon">🕘</span><span>9:00 am – 10:30 am EST</span></div>
+            <div class="tier-schedule-row"><span class="sch-icon">⏱️</span><span>90 minutes per session</span></div>
+          </div>
+          <ul class="tier-features">
+            <li><span class="check">✓</span> Number &amp; logic puzzles</li>
+            <li><span class="check">✓</span> Next-grade readiness skills</li>
+            <li><span class="check">✓</span> Math games &amp; interactive activities</li>
+            <li><span class="check">✓</span> Small group, guided by Ms. Steiner</li>
+          </ul>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-green" style="display:block;text-align:center;">Sign Up — Juniors</a>
+        </div>
+      </div>
+
+      <!-- SENIORS -->
+      <div class="tier-card">
+        <div class="tier-header seniors">
+          <div class="tier-badge">Track 2</div>
+          <div class="tier-name">SENIORS</div>
+          <div class="tier-grades">Grades 4th–5th · Entering students</div>
+        </div>
+        <div class="tier-body">
+          <p class="tier-desc">
+            A more challenging track for students who are ready to level up — harder puzzles, deeper logic problems, and preparation for the jump into middle school math.
+          </p>
+          <div class="tier-schedule">
+            <div class="tier-schedule-row"><span class="sch-icon">📅</span><span>July – August, every Sunday</span></div>
+            <div class="tier-schedule-row"><span class="sch-icon">🕙</span><span>10:30 am – 12:00 pm EST</span></div>
+            <div class="tier-schedule-row"><span class="sch-icon">⏱️</span><span>90 minutes per session</span></div>
+          </div>
+          <ul class="tier-features">
+            <li><span class="check">✓</span> Number &amp; logic puzzles</li>
+            <li><span class="check">✓</span> Next-grade readiness skills</li>
+            <li><span class="check">✓</span> Math games &amp; interactive activities</li>
+            <li><span class="check">✓</span> Small group, guided by Ms. Steiner</li>
+          </ul>
+          <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-teal" style="display:block;text-align:center;">Sign Up — Seniors</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- JOIN CTA -->
+<div class="join-section">
+  <div style="max-width:600px;margin:0 auto;">
+    <div class="section-label" style="color:rgba(255,255,255,0.5);">Ready to join?</div>
+    <h2 class="section-title">Sign up for Math Camp 2026</h2>
+    <p class="section-sub">Email us to register your child — spaces are limited. Contact us today to lock in your spot.</p>
+    <div class="join-email">qwiklearntutoring@gmail.com</div>
+    <a href="mailto:qwiklearntutoring@gmail.com" class="btn btn-primary" style="font-size:1.1rem;padding:14px 36px;">Email to Sign Up Today</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Qwik<span>learn</span></div>
+      <p class="footer-tagline">Expert Math Tutoring · Virtual · All Grades</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Ms. Steiner</a></li>
+        <li><a href="services.html">Services &amp; Pricing</a></li>
+        <li><a href="studyhall.html">Virtual Study Hall</a></li>
+        <li><a href="mathcamp.html">Math Camp 2026</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:qwiklearntutoring@gmail.com">qwiklearntutoring@gmail.com</a></li>
+        <li><a href="#">Sun–Thu: 8 am – 11 pm EST</a></li>
+        <li><a href="#">Friday: 8 am – 5 pm EST</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Qwiklearn. All rights reserved.</span>
+    <span>Built with ❤️ for students everywhere.</span>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  ham.addEventListener('click', () => nav.classList.toggle('open'));
+</script>
+</body>
+</html>
