@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment — Qwiklearn</title>
+  <style>
+    /* ── RESET & BASE ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #ffffff;
+      color: #1a2e1a;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: linear-gradient(135deg, #0d2e1a 0%, #1a4a2a 100%);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+      border-bottom: 3px solid #c05010;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span {
+      color: #f5a623;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: color 0.2s;
+      padding: 6px 0;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #f5a623;
+      border-bottom: 2px solid #f5a623;
+    }
+
+    .nav-links li a.nav-cta {
+      background: linear-gradient(135deg, #c05010 0%, #f5a623 100%);
+      color: #ffffff;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.2s;
+      border-bottom: none;
+    }
+
+    .nav-links li a.nav-cta:hover {
+      background: linear-gradient(135deg, #a0400a 0%, #e09515 100%);
+      color: #ffffff;
+      transform: scale(1.02);
+      border-bottom: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #ffffff;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    /* ── DROPDOWN ── */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown .dropbtn {
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #0d2e1a;
+      min-width: 200px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      border-radius: 8px;
+      padding: 8px 0;
+      border: 1px solid rgba(255,255,255,0.1);
+      z-index: 1001;
+    }
+
+    .dropdown-content li {
+      list-style: none;
+    }
+
+    .dropdown-content li a {
+      display: block;
+      padding: 10px 20px;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: none !important;
+    }
+
+    .dropdown-content li a:hover {
+      background: rgba(245,166,35,0.15);
+      color: #f5a623;
+      border-bottom: none !important;
+    }
+
+    @media (min-width: 821px) {
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: #0d2e1a;
+        padding: 24px 24px;
+        gap: 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        border-bottom: 3px solid #c05010;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li a {
+        font-size: 1rem;
+        padding: 8px 0;
+      }
+
+      .nav-links li a.nav-cta {
+        text-align: center;
+        padding: 12px 24px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: static;
+        box-shadow: none;
+        background: transparent;
+        padding-left: 16px;
+        border: none;
+        margin-top: 4px;
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      .dropdown-content li a {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+
+      .dropdown-content li a:hover {
+        background: rgba(245,166,35,0.1);
+      }
+    }
+
+    /* ── FOOTER (DARK GREY WITH WHITE TEXT) ── */
+    footer {
+      background: #2a2a2a;
+      color: rgba(255,255,255,0.8);
+      padding: 48px 24px 20px;
+      border-top: 3px solid #c05010;
+      margin-top: 60px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .footer-brand span {
+      color: #f5a623;
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 6px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: #f5a623;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    @media (max-width: 900px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, #0a1f0a 0%, #0d2e1a 55%, #1a4a2a 100%);
+      padding: 60px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(192,80,16,0.06) 0%, transparent 70%);
+    }
+
+    .page-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #f5a623;
+      margin-bottom: 8px;
+    }
+
+    .page-hero .section-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .page-hero .section-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      padding: 60px 24px 80px;
+    }
+
+    .form-section-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .form-section h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 8px;
+    }
+
+    .form-section .form-sub {
+      color: #5a6a5a;
+      font-size: 1rem;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    /* ── FORM STYLES ── */
+    .booking-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1a2e1a;
+    }
+
+    .form-group label .required {
+      color: #c05010;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 12px 16px;
+      border: 2px solid #e0e8e0;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: #ffffff;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #c05010;
+      box-shadow: 0 0 0 3px rgba(192, 80, 16, 0.15);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* ── CHECKBOXES & RADIOS ── */
+    .checkbox-group,
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 4px;
+    }
+
+    .checkbox-group label,
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #2a3a2a;
+      cursor: pointer;
+      padding: 6px 14px;
+      border: 2px solid #e0e8e0;
+      border-radius: 30px;
+      transition: all 0.2s;
+      background: #ffffff;
+    }
+
+    .checkbox-group label:hover,
+    .radio-group label:hover {
+      border-color: #c05010;
+      background: rgba(192, 80, 16, 0.04);
+    }
+
+    .checkbox-group input[type="checkbox"],
+    .checkbox-group input[type="radio"],
+    .radio-group input[type="checkbox"],
+    .radio-group input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #c05010;
+      flex-shrink: 0;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+    }
+
+    .checkbox-group input[type="checkbox"]:checked+span,
+    .checkbox-group input[type="radio"]:checked+span,
+    .radio-group input[type="checkbox"]:checked+span,
+    .radio-group input[type="radio"]:checked+span {
+      color: #c05010;
+    }
+
+    .checkbox-group label:has(input:checked),
+    .radio-group label:has(input:checked) {
+      border-color: #c05010;
+      background: rgba(192, 80, 16, 0.08);
+    }
+
+    .checkbox-group .checkbox-label-text,
+    .radio-group .radio-label-text {
+      font-weight: 500;
+    }
+
+    /* ── CONDITIONAL SECTION ── */
+    .conditional-section {
+      display: none;
+      padding: 16px 20px 20px;
+      background: #f5f7f5;
+      border-radius: 12px;
+      border: 2px solid #e0e8e0;
+      margin-top: 4px;
+    }
+
+    .conditional-section.visible {
+      display: block;
+    }
+
+    .conditional-section .form-group {
+      margin-top: 12px;
+    }
+
+    .conditional-section .form-group:first-child {
+      margin-top: 0;
+    }
+
+    .conditional-section .form-group label {
+      font-size: 0.85rem;
+    }
+
+    .conditional-section .radio-group label {
+      padding: 4px 12px;
+      font-size: 0.9rem;
+    }
+
+    /* ── SUBMIT BUTTON ── */
+    .btn-submit {
+      padding: 16px 40px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: linear-gradient(135deg, #c05010 0%, #f5a623 100%);
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(192, 80, 16, 0.3);
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 24px rgba(192, 80, 16, 0.4);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ── SUCCESS MESSAGE ── */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px 24px;
+      background: #f5f7f5;
+      border-radius: 16px;
+      border: 2px solid #2a6b2a;
+    }
+
+    .success-message.visible {
+      display: block;
+    }
+
+    .success-message .success-icon {
+      font-size: 4rem;
+      margin-bottom: 16px;
+    }
+
+    .success-message h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 8px;
+    }
+
+    .success-message p {
+      color: #5a6a5a;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .checkbox-group label,
+      .radio-group label {
+        padding: 4px 12px;
+        font-size: 0.85rem;
+      }
+
+      .page-hero {
+        padding: 40px 16px 32px;
+      }
+
+      .form-section {
+        padding: 40px 16px 60px;
+      }
+
+      .form-section h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR WITH DROPDOWN -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Qwik<span>learn</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li class="dropdown" id="studyHallDropdown">
+        <a href="#" class="dropbtn" id="studyHallDropbtn">Study Hall</a>
+        <ul class="dropdown-content">
+          <li><a href="studyhallms.html">Middle School</a></li>
+          <li><a href="studyhallhs.html">High School</a></li>
+        </ul>
+      </li>
+      <li><a href="mathcamp.html">Math Camp</a></li>
+      <li><a href="bookappointment.html" class="nav-cta active">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">Get Started</div>
+    <h1 class="section-title">Book an Appointment</h1>
+    <p class="section-sub">Fill out the form below and I'll get back to you within 24 hours to schedule your session.</p>
+  </div>
+</div>
+
+<!-- FORM SECTION -->
+<section class="form-section">
+  <div class="form-section-inner">
+
+    <!-- SUCCESS MESSAGE -->
+    <div class="success-message" id="successMessage">
+      <div class="success-icon">✅</div>
+      <h2>Thank You!</h2>
+      <p>Your inquiry has been sent. I'll get back to you within 24 hours to schedule your session.</p>
+    </div>
+
+    <!-- FORM -->
+    <form class="booking-form" id="bookingForm" action="https://formspree.io/f/xwvjddzp" method="POST">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="parentName">Your Name <span class="required">*</span></label>
+          <input type="text" id="parentName" name="parentName" placeholder="e.g., Jane Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="e.g., jane@example.com" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number <span class="required">*</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="e.g., (555) 123-4567" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="childName">Child's Name <span class="required">*</span></label>
+          <input type="text" id="childName" name="childName" placeholder="e.g., Alex Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="childGrade">Child's Grade Level <span class="required">*</span></label>
+          <input type="text" id="childGrade" name="childGrade" placeholder="e.g., 7th Grade" required>
+        </div>
+      </div>
+
+      <!-- INTERESTS -->
+      <div class="form-group">
+        <label>What are you interested in? <span class="required">*</span></label>
+        <div class="checkbox-group">
+          <label>
+            <input type="checkbox" name="interest" value="Math Camp">
+            <span class="checkbox-label-text">Math Camp</span>
+          </label>
+          <label>
+            <input type="checkbox" name="interest" value="Study Hall (Middle School)">
+            <span class="checkbox-label-text">Study Hall (MS)</span>
+          </label>
+          <label>
+            <input type="checkbox" name="interest" value="Study Hall (High School)">
+            <span class="checkbox-label-text">Study Hall (HS)</span>
+          </label>
+          <label id="tutoringTrigger">
+            <input type="checkbox" name="interest" value="Tutoring" class="tutoring-checkbox">
+            <span class="checkbox-label-text">Tutoring</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- TUTORING TOPICS (CONDITIONAL) -->
+      <div class="conditional-section" id="tutoringSection">
+        <div class="form-group">
+          <label>Which tutoring topics?</label>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" name="tutoringTopic" value="Algebra 1">
+              <span class="checkbox-label-text">Algebra 1</span>
+            </label>
+            <label>
+              <input type="checkbox" name="tutoringTopic" value="Algebra 2">
+              <span class="checkbox-label-text">Algebra 2</span>
+            </label>
+            <label>
+              <input type="checkbox" name="tutoringTopic" value="Trigonometry">
+              <span class="checkbox-label-text">Trigonometry</span>
+            </label>
+            <label>
+              <input type="checkbox" name="tutoringTopic" value="Pre-Calculus">
+              <span class="checkbox-label-text">Pre-Calculus</span>
+            </label>
+            <label>
+              <input type="checkbox" name="tutoringTopic" value="Math Grades 1-5">
+              <span class="checkbox-label-text">Math Grades 1-5</span>
+            </label>
+            <label>
+              <input type="checkbox" name="tutoringTopic" value="Math Grades 6-8">
+              <span class="checkbox-label-text">Math Grades 6-8</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Session Type</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="sessionType" value="Single Session">
+              <span class="radio-label-text">Single Session</span>
+            </label>
+            <label>
+              <input type="radio" name="sessionType" value="5-Session Pack (Save 5%)">
+              <span class="radio-label-text">5-Session Pack <span style="color:#2a6b2a;font-weight:700;">Save 5%</span></span>
+            </label>
+            <label>
+              <input type="radio" name="sessionType" value="10-Session Pack (Save 10%)">
+              <span class="radio-label-text">10-Session Pack <span style="color:#2a6b2a;font-weight:700;">Save 10%</span></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- MESSAGE -->
+      <div class="form-group">
+        <label for="message">Additional Notes</label>
+        <textarea id="message" name="message" placeholder="Any specific questions or details about your child's needs?"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submitBtn">Send Inquiry</button>
+    </form>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Qwik<span>learn</span></div>
+      <p class="footer-tagline">Expert Math Tutoring · Virtual · All Grades</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Ms. Steiner</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="studyhallms.html">Middle School Study Hall</a></li>
+        <li><a href="studyhallhs.html">High School Study Hall</a></li>
+        <li><a href="mathcamp.html">Math Camp 2026</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:qwiklearntutoring@gmail.com">qwiklearntutoring@gmail.com</a></li>
+        <li><a href="#">Sun-Thu: 8 am - 11 pm EST</a></li>
+        <li><a href="#">Friday: 8 am - 5 pm EST</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Qwiklearn. All rights reserved.</span>
+    <span>Built with ❤️ for students everywhere.</span>
+  </div>
+</footer>
+
+<script>
+  // ── HAMBURGER MENU ──
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  ham.addEventListener('click', () => nav.classList.toggle('open'));
+
+  // ── DROPDOWN ON MOBILE ──
+  const dropdown = document.getElementById('studyHallDropdown');
+  if (dropdown) {
+    const dropbtn = document.getElementById('studyHallDropbtn');
+    dropbtn.addEventListener('click', function(e) {
+      if (window.innerWidth <= 820) {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      }
+    });
+  }
+
+  // ── CONDITIONAL LOGIC: SHOW TUTORING SECTION ──
+  const tutoringCheckbox = document.querySelector('.tutoring-checkbox');
+  const tutoringSection = document.getElementById('tutoringSection');
+
+  if (tutoringCheckbox) {
+    tutoringCheckbox.addEventListener('change', function() {
+      if (this.checked) {
+        tutoringSection.classList.add('visible');
+      } else {
+        tutoringSection.classList.remove('visible');
+        // Uncheck all tutoring topics and session type when unchecking tutoring
+        const topicCheckboxes = tutoringSection.querySelectorAll('input[name="tutoringTopic"]');
+        topicCheckboxes.forEach(cb => cb.checked = false);
+        const sessionRadios = tutoringSection.querySelectorAll('input[name="sessionType"]');
+        sessionRadios.forEach(rb => rb.checked = false);
+      }
+    });
+  }
+
+  // ── FORM SUBMISSION ──
+  const form = document.getElementById('bookingForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successMessage = document.getElementById('successMessage');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Disable button and show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        // Success!
+        form.style.display = 'none';
+        successMessage.classList.add('visible');
+      } else {
+        // Error - show alert
+        const data = await response.json();
+        alert('Something went wrong. Please try again or email us directly at qwiklearntutoring@gmail.com');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Inquiry';
+      }
+    } catch (error) {
+      alert('Something went wrong. Please try again or email us directly at qwiklearntutoring@gmail.com');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Inquiry';
+    }
+  });
+</script>
+
+</body>
+</html>
