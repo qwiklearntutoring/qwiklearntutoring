@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Qwiklearn</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%23c05010'/><stop offset='100%25' style='stop-color:%230d2e1a'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='url(%23g)'/><text x='50' y='72' font-family='Georgia, serif' font-size='68' font-weight='bold' text-anchor='middle' fill='%23ffffff'>Q</text></svg>">
+  <style>
+    /* ── RESET & BASE ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #ffffff;
+      color: #1a2e1a;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: linear-gradient(135deg, #0d2e1a 0%, #1a4a2a 100%);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+      border-bottom: 3px solid #c05010;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span {
+      color: #f5a623;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: color 0.2s;
+      padding: 6px 0;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #f5a623;
+      border-bottom: 2px solid #f5a623;
+    }
+
+    .nav-links li a.nav-cta {
+      background: linear-gradient(135deg, #c05010 0%, #f5a623 100%);
+      color: #ffffff;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.2s;
+      border-bottom: none;
+    }
+
+    .nav-links li a.nav-cta:hover {
+      background: linear-gradient(135deg, #a0400a 0%, #e09515 100%);
+      color: #ffffff;
+      transform: scale(1.02);
+      border-bottom: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #ffffff;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    /* ── DROPDOWN ── */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown .dropbtn {
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #0d2e1a;
+      min-width: 200px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      border-radius: 8px;
+      padding: 8px 0;
+      border: 1px solid rgba(255,255,255,0.1);
+      z-index: 1001;
+    }
+
+    .dropdown-content li {
+      list-style: none;
+    }
+
+    .dropdown-content li a {
+      display: block;
+      padding: 10px 20px;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: none !important;
+    }
+
+    .dropdown-content li a:hover {
+      background: rgba(245,166,35,0.15);
+      color: #f5a623;
+      border-bottom: none !important;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    @media (max-width: 820px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: #0d2e1a;
+        padding: 24px 24px;
+        gap: 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        border-bottom: 3px solid #c05010;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li a {
+        font-size: 1rem;
+        padding: 8px 0;
+      }
+
+      .nav-links li a.nav-cta {
+        text-align: center;
+        padding: 12px 24px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: static;
+        box-shadow: none;
+        background: transparent;
+        padding-left: 16px;
+        border: none;
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      .dropdown-content li a {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+
+      .dropdown-content li a:hover {
+        background: rgba(245,166,35,0.1);
+      }
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, #0a1f0a 0%, #0d2e1a 55%, #1a4a2a 100%);
+      padding: 60px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(192,80,16,0.06) 0%, transparent 70%);
+    }
+
+    .page-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #f5a623;
+      margin-bottom: 8px;
+    }
+
+    .page-hero .section-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .page-hero .section-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── PRIVACY CONTENT ── */
+    .privacy-section {
+      padding: 60px 24px 80px;
+    }
+
+    .privacy-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .privacy-inner h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-top: 44px;
+      margin-bottom: 14px;
+    }
+
+    .privacy-inner h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .privacy-inner h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1a2e1a;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+
+    .privacy-inner p {
+      color: #3d4d3d;
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .privacy-inner ul {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    .privacy-inner ul li {
+      color: #3d4d3d;
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 6px;
+    }
+
+    .privacy-inner .last-updated {
+      color: #6a7a6a;
+      font-size: 0.9rem;
+      font-style: italic;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 2px solid #e0e8e0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #2a2a2a;
+      color: rgba(255,255,255,0.8);
+      padding: 48px 24px 20px;
+      border-top: 3px solid #c05010;
+      margin-top: 20px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .footer-brand span {
+      color: #f5a623;
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 6px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: #f5a623;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    @media (max-width: 900px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .privacy-inner h2 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-hero {
+        padding: 40px 16px 32px;
+      }
+
+      .privacy-section {
+        padding: 40px 16px 60px;
+      }
+
+      .privacy-inner h2 {
+        font-size: 1.2rem;
+      }
+
+      .privacy-inner p,
+      .privacy-inner ul li {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR WITH DROPDOWN -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Qwik<span>learn</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li class="dropdown" id="studyHallDropdown">
+        <a href="#" class="dropbtn" id="studyHallDropbtn">Study Hall</a>
+        <ul class="dropdown-content">
+          <li><a href="studyhallms.html">Middle School</a></li>
+          <li><a href="studyhallhs.html">High School</a></li>
+        </ul>
+      </li>
+      <li><a href="mathcamp.html">Math Camp</a></li>
+      <li><a href="bookappointment.html" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">Your Privacy Matters</div>
+    <h1 class="section-title">Privacy Policy</h1>
+    <p class="section-sub">We take your privacy seriously. Here's how we handle your information.</p>
+  </div>
+</div>
+
+<!-- PRIVACY CONTENT -->
+<section class="privacy-section">
+  <div class="privacy-inner">
+
+    <p class="last-updated">Last Updated: June 21, 2026</p>
+
+    <p>Welcome to Qwiklearn. Your privacy is important to us. This Privacy Policy explains how Qwiklearn ("we," "us," or "our") collects, uses, shares, and protects your personal information when you use our website, services, and communicate with us. By using our services, you agree to the practices described in this policy.</p>
+
+    <h2>1. Information We Collect</h2>
+    <p>We collect information to provide you with effective tutoring services and to improve your experience.</p>
+
+    <h3>A. Information You Provide to Us</h3>
+    <ul>
+      <li><strong>Contact Information:</strong> Your full name, email address, phone number, and any address you provide for billing or communication.</li>
+      <li><strong>Student Information:</strong> Your child's name, grade level, school, subjects of interest, and any specific academic needs or goals you share with us. This helps us tailor our tutoring sessions.</li>
+      <li><strong>Account and Profile Data:</strong> If you create an account, we may collect a username and password, along with your preferences and any information you add to your profile.</li>
+      <li><strong>Payment Information:</strong> When you book and pay for sessions, you will provide payment details (such as credit card information). Please note that <strong>we do not store your full payment card information</strong>. We use secure third-party payment processors to handle transactions, and they are responsible for securing your financial data.</li>
+      <li><strong>Communications:</strong> Any information you provide when you contact us via email, through our website's contact or booking form, or via other channels like social media.</li>
+      <li><strong>User-Generated Content:</strong> Any comments, reviews, or feedback you may leave on our website or social media pages.</li>
+    </ul>
+
+    <h3>B. Information Automatically Collected</h3>
+    <ul>
+      <li><strong>Device and Usage Data:</strong> When you visit our website, we may automatically collect information about your device and how you interact with our site. This can include your IP address, browser type, operating system, pages visited, time spent on pages, and the website you came from. This information helps us improve our website and understand how visitors use it.</li>
+      <li><strong>Cookies and Similar Technologies:</strong> We may use cookies and similar tracking technologies to enhance your experience on our website, analyze site traffic, and remember your preferences. You can control the use of cookies through your browser settings.</li>
+    </ul>
+
+    <h2>2. How We Use Your Information</h2>
+    <p>We use the information we collect for the following purposes:</p>
+    <ul>
+      <li><strong>To Provide and Manage Services:</strong> To schedule, conduct, and manage tutoring sessions, communicate about appointments, and provide customer support.</li>
+      <li><strong>To Improve Our Services:</strong> To understand your needs and preferences, analyze usage patterns, and improve the quality and content of our tutoring and website.</li>
+      <li><strong>For Communication:</strong> To respond to your inquiries, send you important administrative messages (like appointment confirmations and reminders), and, with your consent, send you updates, newsletters, or promotional offers about our services. You can opt out of promotional emails at any time.</li>
+      <li><strong>For Billing and Payment:</strong> To process payments and manage billing for services.</li>
+      <li><strong>For Legal and Compliance Reasons:</strong> To comply with applicable laws and regulations, and to protect the rights, safety, and property of Qwiklearn, our users, and others.</li>
+    </ul>
+
+    <h2>3. How We Share Your Information</h2>
+    <p>We do not sell, trade, or rent your personal information to third parties for their marketing purposes. We may share your information in the following limited circumstances:</p>
+    <ul>
+      <li><strong>Service Providers:</strong> We share information with trusted third-party service providers who help us operate our business. This includes payment processors, email and communication providers, website analytics providers, and form and survey platforms. These service providers are contractually obligated to protect your information and only use it for the services they provide to us.</li>
+      <li><strong>Legal Requirements:</strong> We may disclose your information if required to do so by law or in response to valid legal requests from public authorities (e.g., a court order or subpoena).</li>
+      <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of all or a portion of our assets, your information may be transferred as part of that transaction. We will notify you of any such change in ownership.</li>
+      <li><strong>With Your Consent:</strong> We may share your information for other purposes with your explicit consent.</li>
+    </ul>
+
+    <h2>4. Data Security</h2>
+    <p>We take the security of your personal information seriously. We implement reasonable technical, organizational, and physical safeguards designed to protect your information from unauthorized access, use, alteration, and disclosure. However, no method of transmission over the internet or method of electronic storage is 100% secure. Therefore, while we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
+
+    <h2>5. Your Data Protection Rights</h2>
+    <p>Depending on your location, you may have certain rights regarding your personal information. These may include:</p>
+    <ul>
+      <li><strong>The Right to Access:</strong> You can request a copy of the personal information we hold about you.</li>
+      <li><strong>The Right to Rectification:</strong> You can ask us to correct inaccurate or incomplete information.</li>
+      <li><strong>The Right to Erasure:</strong> You can request that we delete your personal information, subject to certain legal exceptions.</li>
+      <li><strong>The Right to Restrict Processing:</strong> You can ask us to restrict the processing of your information in certain circumstances.</li>
+      <li><strong>The Right to Object:</strong> You can object to our processing of your information for marketing purposes.</li>
+      <li><strong>The Right to Data Portability:</strong> You can request to receive a copy of your data in a structured, machine-readable format.</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us at <a href="mailto:qwiklearntutoring@gmail.com" style="color:#f5a623;text-decoration:none;font-weight:600;">qwiklearntutoring@gmail.com</a>.</p>
+
+    <h2>6. Children's Privacy</h2>
+    <p>Our services are directed towards parents and guardians who are arranging tutoring for their children. We do not knowingly collect personal information directly from children under the age of 13 without verifiable parental consent. If you are a parent or guardian and believe your child has provided us with personal information without your consent, please contact us. If we become aware that we have collected personal information from a child under 13 without verification of parental consent, we will take steps to delete that information.</p>
+
+    <h2>7. Third-Party Links</h2>
+    <p>Our website may contain links to third-party websites, such as payment processors or our social media pages. This Privacy Policy does not apply to those third-party sites. We are not responsible for the privacy practices or the content of such websites. We encourage you to review the privacy policies of those third parties.</p>
+
+    <h2>8. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will post any changes on this page with an updated "Last Updated" date. We encourage you to review this page periodically for any updates. Your continued use of our services after any changes constitutes your acceptance of the new Privacy Policy.</p>
+
+    <h2>9. Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+    <p style="margin-top:8px;">
+      <strong>Ms. Yocheved Steiner</strong><br>
+      <strong>Email:</strong> <a href="mailto:qwiklearntutoring@gmail.com" style="color:#f5a623;text-decoration:none;font-weight:600;">qwiklearntutoring@gmail.com</a><br>
+      <strong>Website:</strong> <a href="https://qwiklearntutoring.com" style="color:#f5a623;text-decoration:none;font-weight:600;">qwiklearntutoring.com</a>
+    </p>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Qwik<span>learn</span></div>
+      <p class="footer-tagline">Expert Math Tutoring · Virtual · All Grades</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Ms. Steiner</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="studyhallms.html">Middle School Study Hall</a></li>
+        <li><a href="studyhallhs.html">High School Study Hall</a></li>
+        <li><a href="mathcamp.html">Math Camp 2026</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:qwiklearntutoring@gmail.com">qwiklearntutoring@gmail.com</a></li>
+        <li><a href="#">Sun-Thu: 8 am - 11 pm EST</a></li>
+        <li><a href="#">Friday: 8 am - 5 pm EST</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Qwiklearn. All rights reserved.</span>
+    <span>Built with ❤️ for students everywhere.</span>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  ham.addEventListener('click', () => nav.classList.toggle('open'));
+
+  // Handle dropdown on mobile
+  const dropdown = document.getElementById('studyHallDropdown');
+  if (dropdown) {
+    const dropbtn = document.getElementById('studyHallDropbtn');
+    dropbtn.addEventListener('click', function(e) {
+      if (window.innerWidth <= 820) {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
